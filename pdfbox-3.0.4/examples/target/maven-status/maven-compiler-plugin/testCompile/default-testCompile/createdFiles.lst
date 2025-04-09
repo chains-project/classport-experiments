@@ -1,0 +1,12 @@
+org/apache/pdfbox/examples/pdmodel/TestCreateGradientShadingPDF.class
+org/apache/pdfbox/examples/rendering/TestCustomPageDrawer.class
+org/apache/pdfbox/examples/pdfa/MergePDFATest.class
+org/apache/wink/client/MockHttpServer$HttpProcessor.class
+org/apache/pdfbox/examples/pdmodel/TestRubberStampWithImage.class
+org/apache/pdfbox/examples/pdmodel/TestHelloWorld.class
+org/apache/pdfbox/examples/interactive/form/TestCreateSimpleForms.class
+org/apache/wink/client/MockHttpServer.class
+org/apache/pdfbox/examples/pdmodel/TestCreateSignature.class
+org/apache/pdfbox/examples/pdmodel/TestEmbeddedFiles.class
+org/apache/wink/client/MockHttpServer$MockHttpServerResponse.class
+org/apache/pdfbox/examples/pdfa/CreatePDFATest.class

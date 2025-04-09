@@ -1,0 +1,310 @@
+2025-04-09 15:25:47.442 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1243ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-09 15:25:47.499 [main] INFO  i.d.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-04-09 15:25:47.500 [main] INFO  i.d.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-04-09 15:25:47.671 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: assets for path /maps/*
+2025-04-09 15:25:47.672 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: webjars for path /webjars/*
+2025-04-09 15:25:47.676 [main] INFO  io.dropwizard.server.ServerFactory - Starting GraphHopperApplication
+                        _     _
+   __ _ _ __ __ _ _ __ | |__ | |__   ___  _ __  _ __   ___ _ __
+  / _` | '__/ _` | '_ \| '_ \| '_ \ / _ \| '_ \| '_ \ / _ \ '__|
+ | (_| | | | (_| | |_) | | | | | | | (_) | |_) | |_) |  __/ |
+  \__, |_|  \__,_| .__/|_| |_|_| |_|\___/| .__/| .__/ \___|_|
+  |___/          |_|                     |_|   |_|
+2025-04-09 15:25:47.738 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened application@323f3c96{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:25:47.738 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened admin@6726cc69{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:25:47.739 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.53.v20231009; built: 2023-10-09T12:29:09.265Z; git: 27bde00a0b95a1d5bbee0eae7984f891d2d0f8c9; jvm 23.0.2
+2025-04-09 15:25:48.186 [main] INFO  c.g.routing.ch.CHPreparationHandler - There are no CHs to prepare
+2025-04-09 15:25:48.191 [main] INFO  com.graphhopper.GraphHopper - version 9.1|2025-03-25T08:11:12Z (9,22,6,5,2,9)
+2025-04-09 15:25:48.203 [main] INFO  com.graphhopper.GraphHopper - graph car|RAM_STORE|2D|no_turn_cost|nodes:9,edges:22,geometry:6,location_index:5,string_index:2,nodesCH:0,shortcuts:9, details:edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 15:25:48.219 [main] INFO  c.g.http.GraphHopperManaged - loaded graph at:../graphhopper/graph-cache, data_reader_file:../graphhopper/berlin-latest.osm.pbf, encoded values:["{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_access\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":0,\"bwd_shift\":1,\"fwd_mask\":1,\"bwd_mask\":2}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"car_average_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":68,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":2,\"bwd_shift\":9,\"fwd_mask\":508,\"bwd_mask\":65024,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_class\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":19,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":16,\"bwd_shift\":-1,\"fwd_mask\":2031616,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadClass\"}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_environment\",\"bits\":3,\"min_storable_value\":0,\"max_storable_value\":7,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":21,\"bwd_shift\":-1,\"fwd_mask\":14680064,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadEnvironment\"}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"roundabout\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":24,\"bwd_shift\":-1,\"fwd_mask\":16777216,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"road_class_link\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":25,\"bwd_shift\":-1,\"fwd_mask\":33554432,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"max_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":127,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":1,\"bwd_data_index\":1,\"fwd_shift\":0,\"bwd_shift\":7,\"fwd_mask\":127,\"bwd_mask\":16256,\"factor\":2.0,\"use_maximum_as_infinity\":true}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"ferry_speed\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":14,\"bwd_shift\":-1,\"fwd_mask\":507904,\"bwd_mask\":0,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_subnetwork\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":19,\"bwd_shift\":-1,\"fwd_mask\":524288,\"bwd_mask\":0}"], 2 ints for edge flags, edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 15:25:48.525 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.codahale.metrics.health.HealthCheckRegistry registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.codahale.metrics.health.HealthCheckRegistry will be ignored. 
+2025-04-09 15:25:48.647 [main] INFO  i.d.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     / (com.graphhopper.application.resources.RootResource)
+    GET     /health (com.graphhopper.resources.HealthCheckResource)
+    GET     /i18n (com.graphhopper.resources.I18NResource)
+    GET     /i18n/{locale} (com.graphhopper.resources.I18NResource)
+    GET     /info (com.graphhopper.resources.InfoResource)
+    GET     /isochrone (com.graphhopper.resources.IsochroneResource)
+    POST    /match (com.graphhopper.resources.MapMatchingResource)
+    GET     /mvt/{z}/{x}/{y}.mvt (com.graphhopper.resources.MVTResource)
+    GET     /navigate/directions/v5/gh/{profile}/{coordinatesArray : .+} (com.graphhopper.navigation.NavigateResource)
+    GET     /nearest (com.graphhopper.resources.NearestResource)
+    GET     /route (com.graphhopper.resources.RouteResource)
+    POST    /route (com.graphhopper.resources.RouteResource)
+    GET     /spt (com.graphhopper.resources.SPTResource)
+
+2025-04-09 15:25:48.648 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@27f71195{/,null,AVAILABLE}
+2025-04-09 15:25:48.651 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-04-09 15:25:48.652 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@47187f50{/,null,AVAILABLE}
+2025-04-09 15:25:48.663 [main] INFO  o.e.jetty.server.AbstractConnector - Started application@323f3c96{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:25:48.664 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@6726cc69{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:25:48.664 [main] INFO  org.eclipse.jetty.server.Server - Started @2466ms
+2025-04-09 15:27:05.576 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped application@323f3c96{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:27:05.577 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@6726cc69{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:27:05.577 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@47187f50{/,null,STOPPED}
+2025-04-09 15:27:05.584 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@27f71195{/,null,STOPPED}
+2025-04-09 15:27:08.036 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1460ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-09 15:27:08.098 [main] INFO  i.d.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-04-09 15:27:08.100 [main] INFO  i.d.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-04-09 15:27:08.283 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: assets for path /maps/*
+2025-04-09 15:27:08.284 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: webjars for path /webjars/*
+2025-04-09 15:27:08.290 [main] INFO  io.dropwizard.server.ServerFactory - Starting GraphHopperApplication
+                        _     _
+   __ _ _ __ __ _ _ __ | |__ | |__   ___  _ __  _ __   ___ _ __
+  / _` | '__/ _` | '_ \| '_ \| '_ \ / _ \| '_ \| '_ \ / _ \ '__|
+ | (_| | | | (_| | |_) | | | | | | | (_) | |_) | |_) |  __/ |
+  \__, |_|  \__,_| .__/|_| |_|_| |_|\___/| .__/| .__/ \___|_|
+  |___/          |_|                     |_|   |_|
+2025-04-09 15:27:08.364 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened application@6726cc69{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:27:08.364 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened admin@4b6d92e{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:27:08.365 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.53.v20231009; built: 2023-10-09T12:29:09.265Z; git: 27bde00a0b95a1d5bbee0eae7984f891d2d0f8c9; jvm 23.0.2
+2025-04-09 15:27:08.860 [main] INFO  c.g.routing.ch.CHPreparationHandler - There are no CHs to prepare
+2025-04-09 15:27:08.864 [main] INFO  com.graphhopper.GraphHopper - version 9.1|2025-03-25T08:11:12Z (9,22,6,5,2,9)
+2025-04-09 15:27:08.876 [main] INFO  com.graphhopper.GraphHopper - graph car|RAM_STORE|2D|no_turn_cost|nodes:9,edges:22,geometry:6,location_index:5,string_index:2,nodesCH:0,shortcuts:9, details:edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 15:27:08.894 [main] INFO  c.g.http.GraphHopperManaged - loaded graph at:../graphhopper/graph-cache, data_reader_file:../graphhopper/berlin-latest.osm.pbf, encoded values:["{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_access\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":0,\"bwd_shift\":1,\"fwd_mask\":1,\"bwd_mask\":2}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"car_average_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":68,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":2,\"bwd_shift\":9,\"fwd_mask\":508,\"bwd_mask\":65024,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_class\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":19,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":16,\"bwd_shift\":-1,\"fwd_mask\":2031616,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadClass\"}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_environment\",\"bits\":3,\"min_storable_value\":0,\"max_storable_value\":7,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":21,\"bwd_shift\":-1,\"fwd_mask\":14680064,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadEnvironment\"}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"roundabout\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":24,\"bwd_shift\":-1,\"fwd_mask\":16777216,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"road_class_link\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":25,\"bwd_shift\":-1,\"fwd_mask\":33554432,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"max_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":127,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":1,\"bwd_data_index\":1,\"fwd_shift\":0,\"bwd_shift\":7,\"fwd_mask\":127,\"bwd_mask\":16256,\"factor\":2.0,\"use_maximum_as_infinity\":true}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"ferry_speed\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":14,\"bwd_shift\":-1,\"fwd_mask\":507904,\"bwd_mask\":0,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_subnetwork\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":19,\"bwd_shift\":-1,\"fwd_mask\":524288,\"bwd_mask\":0}"], 2 ints for edge flags, edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 15:27:09.274 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.codahale.metrics.health.HealthCheckRegistry registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.codahale.metrics.health.HealthCheckRegistry will be ignored. 
+2025-04-09 15:27:09.417 [main] INFO  i.d.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     / (com.graphhopper.application.resources.RootResource)
+    GET     /health (com.graphhopper.resources.HealthCheckResource)
+    GET     /i18n (com.graphhopper.resources.I18NResource)
+    GET     /i18n/{locale} (com.graphhopper.resources.I18NResource)
+    GET     /info (com.graphhopper.resources.InfoResource)
+    GET     /isochrone (com.graphhopper.resources.IsochroneResource)
+    POST    /match (com.graphhopper.resources.MapMatchingResource)
+    GET     /mvt/{z}/{x}/{y}.mvt (com.graphhopper.resources.MVTResource)
+    GET     /navigate/directions/v5/gh/{profile}/{coordinatesArray : .+} (com.graphhopper.navigation.NavigateResource)
+    GET     /nearest (com.graphhopper.resources.NearestResource)
+    GET     /route (com.graphhopper.resources.RouteResource)
+    POST    /route (com.graphhopper.resources.RouteResource)
+    GET     /spt (com.graphhopper.resources.SPTResource)
+
+2025-04-09 15:27:09.418 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@336f49a1{/,null,AVAILABLE}
+2025-04-09 15:27:09.422 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-04-09 15:27:09.423 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@53ea380b{/,null,AVAILABLE}
+2025-04-09 15:27:09.433 [main] INFO  o.e.jetty.server.AbstractConnector - Started application@6726cc69{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:27:09.434 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@4b6d92e{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:27:09.435 [main] INFO  org.eclipse.jetty.server.Server - Started @2859ms
+2025-04-09 15:27:16.524 [dw-491 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 3, took: 254,9 ms, algo: , profile: car, custom_model: null, alternatives: 1, distance0: 8255.725942583007, weight0: 1531.5612407174124, time0: 13min, points0: 159, debugInfo: idLookup:0.040187083s; , algoInit:13927 μs, dijkstrabi|ch-routing:37 ms, path extraction: 5652 μs, visited nodes sum: 132, algoInit:203 μs, dijkstrabi|ch-routing:10 ms, path extraction: 974 μs, visited nodes sum: 194
+2025-04-09 15:27:18.478 [dw-490 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 4, took: 62,5 ms, algo: , profile: car, custom_model: null, alternatives: 1, distance0: 11944.969858063007, weight0: 2172.904801933196, time0: 18min, points0: 213, debugInfo: idLookup:0.022464115s; , algoInit:37 μs, dijkstrabi|ch-routing:11 ms, path extraction: 1443 μs, visited nodes sum: 120, algoInit:37 μs, dijkstrabi|ch-routing:9 ms, path extraction: 736 μs, visited nodes sum: 240, algoInit:38 μs, dijkstrabi|ch-routing:4 ms, path extraction: 330 μs, visited nodes sum: 302
+2025-04-09 15:27:22.544 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped application@6726cc69{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:27:22.545 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@4b6d92e{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:27:22.546 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@53ea380b{/,null,STOPPED}
+2025-04-09 15:27:22.555 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@336f49a1{/,null,STOPPED}
+2025-04-09 15:42:02.566 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1653ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-09 15:42:02.643 [main] INFO  i.d.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-04-09 15:42:02.645 [main] INFO  i.d.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-04-09 15:42:02.863 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: assets for path /maps/*
+2025-04-09 15:42:02.865 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: webjars for path /webjars/*
+2025-04-09 15:42:02.871 [main] INFO  io.dropwizard.server.ServerFactory - Starting GraphHopperApplication
+                        _     _
+   __ _ _ __ __ _ _ __ | |__ | |__   ___  _ __  _ __   ___ _ __
+  / _` | '__/ _` | '_ \| '_ \| '_ \ / _ \| '_ \| '_ \ / _ \ '__|
+ | (_| | | | (_| | |_) | | | | | | | (_) | |_) | |_) |  __/ |
+  \__, |_|  \__,_| .__/|_| |_|_| |_|\___/| .__/| .__/ \___|_|
+  |___/          |_|                     |_|   |_|
+2025-04-09 15:42:02.951 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened application@33899f7a{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:42:02.951 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened admin@7899de11{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:42:02.952 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.53.v20231009; built: 2023-10-09T12:29:09.265Z; git: 27bde00a0b95a1d5bbee0eae7984f891d2d0f8c9; jvm 23.0.2
+2025-04-09 15:42:03.480 [main] INFO  c.g.routing.ch.CHPreparationHandler - There are no CHs to prepare
+2025-04-09 15:42:03.487 [main] INFO  com.graphhopper.GraphHopper - version 9.1|2025-03-25T08:11:12Z (9,22,6,5,2,9)
+2025-04-09 15:42:03.513 [main] INFO  com.graphhopper.GraphHopper - graph car|RAM_STORE|2D|no_turn_cost|nodes:9,edges:22,geometry:6,location_index:5,string_index:2,nodesCH:0,shortcuts:9, details:edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 15:42:03.529 [main] INFO  c.g.http.GraphHopperManaged - loaded graph at:../graphhopper/graph-cache, data_reader_file:../graphhopper/berlin-latest.osm.pbf, encoded values:["{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_access\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":0,\"bwd_shift\":1,\"fwd_mask\":1,\"bwd_mask\":2}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"car_average_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":68,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":2,\"bwd_shift\":9,\"fwd_mask\":508,\"bwd_mask\":65024,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_class\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":19,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":16,\"bwd_shift\":-1,\"fwd_mask\":2031616,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadClass\"}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_environment\",\"bits\":3,\"min_storable_value\":0,\"max_storable_value\":7,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":21,\"bwd_shift\":-1,\"fwd_mask\":14680064,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadEnvironment\"}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"roundabout\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":24,\"bwd_shift\":-1,\"fwd_mask\":16777216,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"road_class_link\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":25,\"bwd_shift\":-1,\"fwd_mask\":33554432,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"max_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":127,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":1,\"bwd_data_index\":1,\"fwd_shift\":0,\"bwd_shift\":7,\"fwd_mask\":127,\"bwd_mask\":16256,\"factor\":2.0,\"use_maximum_as_infinity\":true}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"ferry_speed\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":14,\"bwd_shift\":-1,\"fwd_mask\":507904,\"bwd_mask\":0,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_subnetwork\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":19,\"bwd_shift\":-1,\"fwd_mask\":524288,\"bwd_mask\":0}"], 2 ints for edge flags, edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 15:42:03.929 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.codahale.metrics.health.HealthCheckRegistry registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.codahale.metrics.health.HealthCheckRegistry will be ignored. 
+2025-04-09 15:42:04.076 [main] INFO  i.d.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     / (com.graphhopper.application.resources.RootResource)
+    GET     /health (com.graphhopper.resources.HealthCheckResource)
+    GET     /i18n (com.graphhopper.resources.I18NResource)
+    GET     /i18n/{locale} (com.graphhopper.resources.I18NResource)
+    GET     /info (com.graphhopper.resources.InfoResource)
+    GET     /isochrone (com.graphhopper.resources.IsochroneResource)
+    POST    /match (com.graphhopper.resources.MapMatchingResource)
+    GET     /mvt/{z}/{x}/{y}.mvt (com.graphhopper.resources.MVTResource)
+    GET     /navigate/directions/v5/gh/{profile}/{coordinatesArray : .+} (com.graphhopper.navigation.NavigateResource)
+    GET     /nearest (com.graphhopper.resources.NearestResource)
+    GET     /route (com.graphhopper.resources.RouteResource)
+    POST    /route (com.graphhopper.resources.RouteResource)
+    GET     /spt (com.graphhopper.resources.SPTResource)
+
+2025-04-09 15:42:04.077 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@2c8b8de0{/,null,AVAILABLE}
+2025-04-09 15:42:04.083 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-04-09 15:42:04.083 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@578c3fd9{/,null,AVAILABLE}
+2025-04-09 15:42:04.093 [main] INFO  o.e.jetty.server.AbstractConnector - Started application@33899f7a{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:42:04.094 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@7899de11{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:42:04.094 [main] INFO  org.eclipse.jetty.server.Server - Started @3182ms
+2025-04-09 15:42:05.860 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped application@33899f7a{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 15:42:05.861 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@7899de11{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 15:42:05.861 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@578c3fd9{/,null,STOPPED}
+2025-04-09 15:42:05.868 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@2c8b8de0{/,null,STOPPED}
+2025-04-09 16:04:16.391 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1357ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-09 16:04:16.443 [main] INFO  i.d.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-04-09 16:04:16.444 [main] INFO  i.d.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-04-09 16:04:16.638 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: assets for path /maps/*
+2025-04-09 16:04:16.639 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: webjars for path /webjars/*
+2025-04-09 16:04:16.645 [main] INFO  io.dropwizard.server.ServerFactory - Starting GraphHopperApplication
+                        _     _
+   __ _ _ __ __ _ _ __ | |__ | |__   ___  _ __  _ __   ___ _ __
+  / _` | '__/ _` | '_ \| '_ \| '_ \ / _ \| '_ \| '_ \ / _ \ '__|
+ | (_| | | | (_| | |_) | | | | | | | (_) | |_) | |_) |  __/ |
+  \__, |_|  \__,_| .__/|_| |_|_| |_|\___/| .__/| .__/ \___|_|
+  |___/          |_|                     |_|   |_|
+2025-04-09 16:04:16.717 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened application@6cd5122d{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:04:16.717 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened admin@2c7a8af2{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:04:16.719 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.53.v20231009; built: 2023-10-09T12:29:09.265Z; git: 27bde00a0b95a1d5bbee0eae7984f891d2d0f8c9; jvm 23.0.2
+2025-04-09 16:04:17.183 [main] INFO  c.g.routing.ch.CHPreparationHandler - There are no CHs to prepare
+2025-04-09 16:04:17.188 [main] INFO  com.graphhopper.GraphHopper - version 9.1|2025-04-09T14:03:30Z (9,22,6,5,2,9)
+2025-04-09 16:04:17.199 [main] INFO  com.graphhopper.GraphHopper - graph car|RAM_STORE|2D|no_turn_cost|nodes:9,edges:22,geometry:6,location_index:5,string_index:2,nodesCH:0,shortcuts:9, details:edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 16:04:17.215 [main] INFO  c.g.http.GraphHopperManaged - loaded graph at:../graphhopper/graph-cache, data_reader_file:../graphhopper/berlin-latest.osm.pbf, encoded values:["{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_access\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":0,\"bwd_shift\":1,\"fwd_mask\":1,\"bwd_mask\":2}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"car_average_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":68,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":2,\"bwd_shift\":9,\"fwd_mask\":508,\"bwd_mask\":65024,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_class\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":19,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":16,\"bwd_shift\":-1,\"fwd_mask\":2031616,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadClass\"}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_environment\",\"bits\":3,\"min_storable_value\":0,\"max_storable_value\":7,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":21,\"bwd_shift\":-1,\"fwd_mask\":14680064,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadEnvironment\"}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"roundabout\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":24,\"bwd_shift\":-1,\"fwd_mask\":16777216,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"road_class_link\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":25,\"bwd_shift\":-1,\"fwd_mask\":33554432,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"max_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":127,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":1,\"bwd_data_index\":1,\"fwd_shift\":0,\"bwd_shift\":7,\"fwd_mask\":127,\"bwd_mask\":16256,\"factor\":2.0,\"use_maximum_as_infinity\":true}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"ferry_speed\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":14,\"bwd_shift\":-1,\"fwd_mask\":507904,\"bwd_mask\":0,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_subnetwork\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":19,\"bwd_shift\":-1,\"fwd_mask\":524288,\"bwd_mask\":0}"], 2 ints for edge flags, edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 16:04:17.511 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.codahale.metrics.health.HealthCheckRegistry registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.codahale.metrics.health.HealthCheckRegistry will be ignored. 
+2025-04-09 16:04:17.657 [main] INFO  i.d.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     / (com.graphhopper.application.resources.RootResource)
+    GET     /health (com.graphhopper.resources.HealthCheckResource)
+    GET     /i18n (com.graphhopper.resources.I18NResource)
+    GET     /i18n/{locale} (com.graphhopper.resources.I18NResource)
+    GET     /info (com.graphhopper.resources.InfoResource)
+    GET     /isochrone (com.graphhopper.resources.IsochroneResource)
+    POST    /match (com.graphhopper.resources.MapMatchingResource)
+    GET     /mvt/{z}/{x}/{y}.mvt (com.graphhopper.resources.MVTResource)
+    GET     /navigate/directions/v5/gh/{profile}/{coordinatesArray : .+} (com.graphhopper.navigation.NavigateResource)
+    GET     /nearest (com.graphhopper.resources.NearestResource)
+    GET     /route (com.graphhopper.resources.RouteResource)
+    POST    /route (com.graphhopper.resources.RouteResource)
+    GET     /spt (com.graphhopper.resources.SPTResource)
+
+2025-04-09 16:04:17.658 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@5396eeb1{/,null,AVAILABLE}
+2025-04-09 16:04:17.662 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-04-09 16:04:17.663 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@325162e9{/,null,AVAILABLE}
+2025-04-09 16:04:17.670 [main] INFO  o.e.jetty.server.AbstractConnector - Started application@6cd5122d{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:04:17.671 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@2c7a8af2{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:04:17.671 [main] INFO  org.eclipse.jetty.server.Server - Started @2638ms
+2025-04-09 16:05:29.076 [dw-236 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 2, took: 289,8 ms, algo: , profile: car, custom_model: null, alternatives: 1, distance0: 22529.42867950377, weight0: 3884.287593364831, time0: 31min, points0: 276, debugInfo: idLookup:0.037900187s; , algoInit:9930 μs, dijkstrabi|ch-routing:107 ms, path extraction: 24754 μs, visited nodes sum: 265
+2025-04-09 16:05:29.160 [dw-490 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 2, took: 387,7 ms, algo: alternative_route, profile: car, custom_model: null, alternatives: 3, distance0: 22529.42867950377, weight0: 3884.287593364831, time0: 31min, points0: 276, debugInfo: idLookup:0.03781501s; ; ; 
+2025-04-09 16:05:32.120 [dw-235 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 3, took: 121,3 ms, algo: , profile: car, custom_model: null, alternatives: 1, distance0: 34630.68546769622, weight0: 5748.285424498321, time0: 44min, points0: 520, debugInfo: idLookup:0.006022382s; , algoInit:50 μs, dijkstrabi|ch-routing:22 ms, path extraction: 7045 μs, visited nodes sum: 228, algoInit:59 μs, dijkstrabi|ch-routing:21 ms, path extraction: 2324 μs, visited nodes sum: 482
+2025-04-09 16:05:38.864 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped application@6cd5122d{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:05:38.865 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@2c7a8af2{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:05:38.866 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@325162e9{/,null,STOPPED}
+2025-04-09 16:05:38.875 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@5396eeb1{/,null,STOPPED}
+2025-04-09 16:33:17.131 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1342ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-09 16:33:17.181 [main] INFO  i.d.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-04-09 16:33:17.182 [main] INFO  i.d.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-04-09 16:33:17.371 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: assets for path /maps/*
+2025-04-09 16:33:17.372 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: webjars for path /webjars/*
+2025-04-09 16:33:17.377 [main] INFO  io.dropwizard.server.ServerFactory - Starting GraphHopperApplication
+                        _     _
+   __ _ _ __ __ _ _ __ | |__ | |__   ___  _ __  _ __   ___ _ __
+  / _` | '__/ _` | '_ \| '_ \| '_ \ / _ \| '_ \| '_ \ / _ \ '__|
+ | (_| | | | (_| | |_) | | | | | | | (_) | |_) | |_) |  __/ |
+  \__, |_|  \__,_| .__/|_| |_|_| |_|\___/| .__/| .__/ \___|_|
+  |___/          |_|                     |_|   |_|
+2025-04-09 16:33:17.453 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened application@a7ad6e5{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:33:17.453 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened admin@3b1ed14b{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:33:17.455 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.53.v20231009; built: 2023-10-09T12:29:09.265Z; git: 27bde00a0b95a1d5bbee0eae7984f891d2d0f8c9; jvm 21.0.6
+2025-04-09 16:33:17.959 [main] INFO  c.g.routing.ch.CHPreparationHandler - There are no CHs to prepare
+2025-04-09 16:33:17.964 [main] INFO  com.graphhopper.GraphHopper - version 9.1|2025-04-09T14:32:13Z (9,22,6,5,2,9)
+2025-04-09 16:33:17.977 [main] INFO  com.graphhopper.GraphHopper - graph car|RAM_STORE|2D|no_turn_cost|nodes:9,edges:22,geometry:6,location_index:5,string_index:2,nodesCH:0,shortcuts:9, details:edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 16:33:17.993 [main] INFO  c.g.http.GraphHopperManaged - loaded graph at:../graphhopper/graph-cache, data_reader_file:../graphhopper/berlin-latest.osm.pbf, encoded values:["{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_access\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":0,\"bwd_shift\":1,\"fwd_mask\":1,\"bwd_mask\":2}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"car_average_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":68,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":2,\"bwd_shift\":9,\"fwd_mask\":508,\"bwd_mask\":65024,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_class\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":19,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":16,\"bwd_shift\":-1,\"fwd_mask\":2031616,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadClass\"}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_environment\",\"bits\":3,\"min_storable_value\":0,\"max_storable_value\":7,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":21,\"bwd_shift\":-1,\"fwd_mask\":14680064,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadEnvironment\"}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"roundabout\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":24,\"bwd_shift\":-1,\"fwd_mask\":16777216,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"road_class_link\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":25,\"bwd_shift\":-1,\"fwd_mask\":33554432,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"max_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":127,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":1,\"bwd_data_index\":1,\"fwd_shift\":0,\"bwd_shift\":7,\"fwd_mask\":127,\"bwd_mask\":16256,\"factor\":2.0,\"use_maximum_as_infinity\":true}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"ferry_speed\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":14,\"bwd_shift\":-1,\"fwd_mask\":507904,\"bwd_mask\":0,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_subnetwork\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":19,\"bwd_shift\":-1,\"fwd_mask\":524288,\"bwd_mask\":0}"], 2 ints for edge flags, edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 16:33:18.386 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.codahale.metrics.health.HealthCheckRegistry registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.codahale.metrics.health.HealthCheckRegistry will be ignored. 
+2025-04-09 16:33:18.565 [main] INFO  i.d.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     / (com.graphhopper.application.resources.RootResource)
+    GET     /health (com.graphhopper.resources.HealthCheckResource)
+    GET     /i18n (com.graphhopper.resources.I18NResource)
+    GET     /i18n/{locale} (com.graphhopper.resources.I18NResource)
+    GET     /info (com.graphhopper.resources.InfoResource)
+    GET     /isochrone (com.graphhopper.resources.IsochroneResource)
+    POST    /match (com.graphhopper.resources.MapMatchingResource)
+    GET     /mvt/{z}/{x}/{y}.mvt (com.graphhopper.resources.MVTResource)
+    GET     /navigate/directions/v5/gh/{profile}/{coordinatesArray : .+} (com.graphhopper.navigation.NavigateResource)
+    GET     /nearest (com.graphhopper.resources.NearestResource)
+    GET     /route (com.graphhopper.resources.RouteResource)
+    POST    /route (com.graphhopper.resources.RouteResource)
+    GET     /spt (com.graphhopper.resources.SPTResource)
+
+2025-04-09 16:33:18.567 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@544e3679{/,null,AVAILABLE}
+2025-04-09 16:33:18.570 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-04-09 16:33:18.570 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@3e14d390{/,null,AVAILABLE}
+2025-04-09 16:33:18.580 [main] INFO  o.e.jetty.server.AbstractConnector - Started application@a7ad6e5{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:33:18.581 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@3b1ed14b{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:33:18.581 [main] INFO  org.eclipse.jetty.server.Server - Started @2793ms
+2025-04-09 16:36:24.339 [dw-236 - POST /route?key=] INFO  c.g.http.MultiExceptionMapper - bad request: [com.graphhopper.util.exceptions.PointNotFoundException: Cannot find point 1: 52.66473553417234,13.734740515624999]
+2025-04-09 16:36:24.339 [dw-490 - POST /route?key=] INFO  c.g.http.MultiExceptionMapper - bad request: [com.graphhopper.util.exceptions.PointNotFoundException: Cannot find point 1: 52.66473553417234,13.734740515624999]
+2025-04-09 16:36:31.791 [dw-492 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 2, took: 398,8 ms, algo: , profile: car, custom_model: null, alternatives: 1, distance0: 25638.78679480618, weight0: 4341.6204701516, time0: 34min, points0: 306, debugInfo: idLookup:0.003703688s; , algoInit:10584 μs, dijkstrabi|ch-routing:254 ms, path extraction: 18936 μs, visited nodes sum: 320
+2025-04-09 16:36:32.202 [dw-235 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 2, took: 812,4 ms, algo: alternative_route, profile: car, custom_model: null, alternatives: 3, distance0: 25638.78679480618, weight0: 4341.6204701516, time0: 34min, points0: 306, debugInfo: idLookup:0.00362608s; ; ; 
+2025-04-09 16:36:33.441 [dw-495 - POST /route?key=] INFO  c.g.resources.RouteResource - 127.0.0.1 it_IT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 3, took: 117,3 ms, algo: , profile: car, custom_model: null, alternatives: 1, distance0: 24707.23613976184, weight0: 4382.772812420064, time0: 36min, points0: 311, debugInfo: idLookup:0.002262566s; , algoInit:175 μs, dijkstrabi|ch-routing:60 ms, path extraction: 3327 μs, visited nodes sum: 247, algoInit:172 μs, dijkstrabi|ch-routing:25 ms, path extraction: 3046 μs, visited nodes sum: 447
+2025-04-09 16:36:52.357 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped application@a7ad6e5{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:36:52.358 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@3b1ed14b{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:36:52.360 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@3e14d390{/,null,STOPPED}
+2025-04-09 16:36:52.368 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@544e3679{/,null,STOPPED}
+2025-04-09 16:38:37.326 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1765ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-04-09 16:38:37.397 [main] INFO  i.d.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-04-09 16:38:37.398 [main] INFO  i.d.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-04-09 16:38:37.634 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: assets for path /maps/*
+2025-04-09 16:38:37.636 [main] INFO  io.dropwizard.assets.AssetsBundle - Registering AssetBundle with name: webjars for path /webjars/*
+2025-04-09 16:38:37.642 [main] INFO  io.dropwizard.server.ServerFactory - Starting GraphHopperApplication
+                        _     _
+   __ _ _ __ __ _ _ __ | |__ | |__   ___  _ __  _ __   ___ _ __
+  / _` | '__/ _` | '_ \| '_ \| '_ \ / _ \| '_ \| '_ \ / _ \ '__|
+ | (_| | | | (_| | |_) | | | | | | | (_) | |_) | |_) |  __/ |
+  \__, |_|  \__,_| .__/|_| |_|_| |_|\___/| .__/| .__/ \___|_|
+  |___/          |_|                     |_|   |_|
+2025-04-09 16:38:37.744 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened application@a7ad6e5{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:38:37.744 [main] INFO  o.e.jetty.setuid.SetUIDListener - Opened admin@3b1ed14b{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:38:37.746 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.53.v20231009; built: 2023-10-09T12:29:09.265Z; git: 27bde00a0b95a1d5bbee0eae7984f891d2d0f8c9; jvm 21.0.6
+2025-04-09 16:38:38.313 [main] INFO  c.g.routing.ch.CHPreparationHandler - There are no CHs to prepare
+2025-04-09 16:38:38.320 [main] INFO  com.graphhopper.GraphHopper - version 9.1|2025-04-09T14:32:13Z (9,22,6,5,2,9)
+2025-04-09 16:38:38.332 [main] INFO  com.graphhopper.GraphHopper - graph car|RAM_STORE|2D|no_turn_cost|nodes:9,edges:22,geometry:6,location_index:5,string_index:2,nodesCH:0,shortcuts:9, details:edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 16:38:38.353 [main] INFO  c.g.http.GraphHopperManaged - loaded graph at:../graphhopper/graph-cache, data_reader_file:../graphhopper/berlin-latest.osm.pbf, encoded values:["{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_access\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":0,\"bwd_shift\":1,\"fwd_mask\":1,\"bwd_mask\":2}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"car_average_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":68,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":2,\"bwd_shift\":9,\"fwd_mask\":508,\"bwd_mask\":65024,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_class\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":19,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":16,\"bwd_shift\":-1,\"fwd_mask\":2031616,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadClass\"}","{\"className\":\"com.graphhopper.routing.ev.EnumEncodedValue\",\"name\":\"road_environment\",\"bits\":3,\"min_storable_value\":0,\"max_storable_value\":7,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":21,\"bwd_shift\":-1,\"fwd_mask\":14680064,\"bwd_mask\":0,\"enum_type\":\"com.graphhopper.routing.ev.RoadEnvironment\"}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"roundabout\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":24,\"bwd_shift\":-1,\"fwd_mask\":16777216,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"road_class_link\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":0,\"bwd_data_index\":0,\"fwd_shift\":25,\"bwd_shift\":-1,\"fwd_mask\":33554432,\"bwd_mask\":0}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"max_speed\",\"bits\":7,\"min_storable_value\":0,\"max_storable_value\":127,\"max_value\":127,\"negate_reverse_direction\":false,\"store_two_directions\":true,\"fwd_data_index\":1,\"bwd_data_index\":1,\"fwd_shift\":0,\"bwd_shift\":7,\"fwd_mask\":127,\"bwd_mask\":16256,\"factor\":2.0,\"use_maximum_as_infinity\":true}","{\"className\":\"com.graphhopper.routing.ev.DecimalEncodedValueImpl\",\"name\":\"ferry_speed\",\"bits\":5,\"min_storable_value\":0,\"max_storable_value\":31,\"max_value\":5,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":14,\"bwd_shift\":-1,\"fwd_mask\":507904,\"bwd_mask\":0,\"factor\":2.0,\"use_maximum_as_infinity\":false}","{\"className\":\"com.graphhopper.routing.ev.SimpleBooleanEncodedValue\",\"name\":\"car_subnetwork\",\"bits\":1,\"min_storable_value\":0,\"max_storable_value\":1,\"max_value\":1,\"negate_reverse_direction\":false,\"store_two_directions\":false,\"fwd_data_index\":1,\"bwd_data_index\":0,\"fwd_shift\":19,\"bwd_shift\":-1,\"fwd_mask\":524288,\"bwd_mask\":0}"], 2 ints for edge flags, edges: 306,940(12MB), nodes: 276,802(4MB), bounds: 13.069778,13.7624957,52.327972,52.6803845, name:(2MB), geo:355,704(2MB)
+2025-04-09 16:38:38.753 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.codahale.metrics.health.HealthCheckRegistry registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.codahale.metrics.health.HealthCheckRegistry will be ignored. 
+2025-04-09 16:38:38.903 [main] INFO  i.d.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     / (com.graphhopper.application.resources.RootResource)
+    GET     /health (com.graphhopper.resources.HealthCheckResource)
+    GET     /i18n (com.graphhopper.resources.I18NResource)
+    GET     /i18n/{locale} (com.graphhopper.resources.I18NResource)
+    GET     /info (com.graphhopper.resources.InfoResource)
+    GET     /isochrone (com.graphhopper.resources.IsochroneResource)
+    POST    /match (com.graphhopper.resources.MapMatchingResource)
+    GET     /mvt/{z}/{x}/{y}.mvt (com.graphhopper.resources.MVTResource)
+    GET     /navigate/directions/v5/gh/{profile}/{coordinatesArray : .+} (com.graphhopper.navigation.NavigateResource)
+    GET     /nearest (com.graphhopper.resources.NearestResource)
+    GET     /route (com.graphhopper.resources.RouteResource)
+    POST    /route (com.graphhopper.resources.RouteResource)
+    GET     /spt (com.graphhopper.resources.SPTResource)
+
+2025-04-09 16:38:38.905 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@544e3679{/,null,AVAILABLE}
+2025-04-09 16:38:38.909 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-04-09 16:38:38.910 [main] INFO  o.e.j.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@3e14d390{/,null,AVAILABLE}
+2025-04-09 16:38:38.921 [main] INFO  o.e.jetty.server.AbstractConnector - Started application@a7ad6e5{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:38:38.923 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@3b1ed14b{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:38:38.923 [main] INFO  org.eclipse.jetty.server.Server - Started @3363ms
+2025-04-09 16:38:45.949 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped application@a7ad6e5{HTTP/1.1, (http/1.1)}{localhost:8989}
+2025-04-09 16:38:45.950 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@3b1ed14b{HTTP/1.1, (http/1.1)}{localhost:8990}
+2025-04-09 16:38:45.950 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@3e14d390{/,null,STOPPED}
+2025-04-09 16:38:45.958 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped i.d.j.MutableServletContextHandler@544e3679{/,null,STOPPED}

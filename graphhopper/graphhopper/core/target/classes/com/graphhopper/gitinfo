@@ -1,0 +1,6 @@
+# properties will be filled by git-commit-id-plugin during maven build
+84d0da86044283c6d7398a7f774ff8011455c76c
+2025-04-09T11:25:03+0200
+fix in the output path
+dev-experiments
+false

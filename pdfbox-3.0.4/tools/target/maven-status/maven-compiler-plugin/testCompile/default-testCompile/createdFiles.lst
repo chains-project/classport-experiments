@@ -1,0 +1,6 @@
+org/apache/pdfbox/tools/PDFBoxNonHeadlessTest.class
+org/apache/pdfbox/tools/TestExtractText.class
+org/apache/pdfbox/tools/PDFBoxHeadlessTest.class
+org/apache/pdfbox/tools/TestTextToPdf.class
+org/apache/pdfbox/tools/imageio/TestImageIOUtils.class
+org/apache/pdfbox/tools/TestPDFText2HTML.class

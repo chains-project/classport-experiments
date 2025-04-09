@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>jar</packaging>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>string_decoder</artifactId>
+    <version>1.2.0</version>
+    <name>string_decoder</name>
+    <description>WebJar for string_decoder</description>
+    <url>http://webjars.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <scm>
+        <url>https://github.com/nodejs/string_decoder</url>
+        <connection>https://github.com/nodejs/string_decoder.git</connection>
+        <developerConnection>https://github.com/nodejs/string_decoder.git</developerConnection>
+        <tag>v1.2.0</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>webjars</id>
+            <url>http://webjars.org</url>
+        </developer>
+    </developers>
+
+    <licenses>
+        
+        <license>
+            <name>MIT</name>
+            <url>https://spdx.org/licenses/MIT#licenseText</url>
+            <distribution>repo</distribution>
+        </license>
+        
+    </licenses>
+
+    
+    <issueManagement>
+        <url>https://github.com/nodejs/string_decoder/issues</url>
+    </issueManagement>
+    
+
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>safe-buffer</artifactId>
+            <version>[5.1.0,5.2)</version>
+        </dependency>
+        
+        
+    </dependencies>
+
+</project>
