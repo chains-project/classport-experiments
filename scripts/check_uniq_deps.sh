@@ -11,9 +11,9 @@ fi
 OUTPUT_CSV="$1"
 
 # Check if the forlder test exists, if not create it
-if [ ! -d "../output/test" ]; then
-  mkdir ../output/test
+if [ ! -d "../output/test-on-output" ]; then
+  mkdir ../output/test-on-output
 fi
 
 # Process the file
-cut -d',' -f5 ../output/"$OUTPUT_CSV" | tail -n +2 | sort | uniq > ../output/test/"$OUTPUT_CSV"_test.txt
+cut -d',' -f5 ../output/"$OUTPUT_CSV" | tail -n +2 | sort | uniq > ../output/test-on-output/"$OUTPUT_CSV"_test.txt

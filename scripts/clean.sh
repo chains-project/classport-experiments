@@ -23,12 +23,12 @@ clean_output_folder() {
 
 # Function to remove the content of the "test" folder
 clean_test_folder() {
-    echo "Cleaning the 'test' folder..."
-    if [ -d "$SCRIPT_DIR/../test" ]; then
-        rm -rf "$SCRIPT_DIR/../test"/*
-        echo "'test' folder cleaned."
+    echo "Cleaning the 'test-on-output' folder..."
+    if [ -d "$SCRIPT_DIR/../test-on-output" ]; then
+        rm -rf "$SCRIPT_DIR/../test-on-output"/*
+        echo "'test-on-output' folder cleaned."
     else
-        echo "'test' folder does not exist."
+        echo "'test-on-output' folder does not exist."
     fi
 }
 
