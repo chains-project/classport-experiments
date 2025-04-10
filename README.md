@@ -11,6 +11,7 @@ The table contains the list of the projects used in the experiments, with the de
 | Pdfbox    | -          | Extract text from a pdf     | 3.0.4     |
 | Graphhopper    | change version from SNAPSHOT to 9     | Compute a path with an intermediate node   | 9.1     |
 | certificate-ripper    | -          | Get the certificate of the chains website    | 2.4.1     |
+| checkstyle    | -          | Use /sun_checks.xml on the agent module    | 10.23.0     |
 
 
 
