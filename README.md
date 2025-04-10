@@ -17,7 +17,7 @@ The table contains the list of the projects used in the experiments, with the de
 
 ## How to reproduce
 
-The [scripts](/classport-experiments/scripts/) folder contains the scripts necessary to run the experiments.
+The [scripts](/scripts/) folder contains the scripts necessary to run the experiments.
 
 * embed
 * run the agent
