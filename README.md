@@ -12,6 +12,7 @@ The table contains the list of the projects used in the experiments, with the de
 | Graphhopper    | change version from SNAPSHOT to 9     | Compute a path with an intermediate node   | 9.1     |
 | certificate-ripper    | -          | Get the certificate of the chains website    | 2.4.1     |
 | checkstyle*    | -          | Use /sun_checks.xml on the agent module    | 10.23.0     |
+| mcs    | -          | Search search   | 0.7.3     |
 
 *Checkstyle lints itself, to pass all the tests it is required to run checkstyle outside Classport
 
