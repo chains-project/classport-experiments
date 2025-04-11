@@ -1,0 +1,107 @@
+project:
+  name: mcs
+  description: Maven Central Search
+  longDescription: Search Maven Central from your command line!
+  links:
+    bugTracker: https://github.com/mthmulders/mcs/issues
+    homepage: https://maarten.mulders.it/projects/mcs/
+    vcsBrowser: https://github.com/mthmulders/mcs
+  authors:
+    - Maarten Mulders
+  license: MIT
+  extraProperties:
+    inceptionYear: 2021
+  stereotype: CLI
+  tags:
+    - 'maven'
+    - 'development'
+    - 'cli'
+
+release:
+  github:
+    enabled: true
+    owner: mthmulders
+    name: mcs
+    username: mthmulders
+    update:
+      enabled: true
+    changelog:
+      formatted: ALWAYS
+      preset: 'conventional-commits'
+      links: true
+      hide:
+        contributors:
+          - 'Maarten Mulders'
+          - '[bot]'
+          - 'GitHub'
+
+announce:
+  mastodon:
+    active: RELEASE
+    host: https://mastodon.online/
+    status: 🚀 {{projectName}} {{projectVersion}} has just been released! Check {{releaseNotesUrl}} for the details.
+  bluesky:
+    active: RELEASE
+    host: https://bsky.social
+    handle: mthmulders.bsky.social
+    status: 🚀 {{projectName}} {{projectVersion}} has just been released! Check {{releaseNotesUrl}} for the details.
+  twitter:
+    active: RELEASE
+    status: 🚀 {{projectName}} {{projectVersion}} has just been released! Check {{releaseNotesUrl}} for the details.
+
+distributions:
+  mcs:
+    stereotype: CLI
+    type: BINARY
+    brew:
+      active: RELEASE
+      multiPlatform: true
+      repository:
+        active: RELEASE
+    chocolatey:
+      active: RELEASE
+      repository:
+        active: RELEASE
+      remoteBuild: true
+      iconUrl: https://maarten.mulders.it/img/mcs-icon.png
+      title: Maven Central Search
+    sdkman:
+      active: RELEASE
+    snap:
+      active: RELEASE
+      base: core
+      localPlugs:
+        - network
+      architectures:
+        - buildOn: [amd64]
+          runOn: [amd64]
+      repository:
+        active: RELEASE
+        name: mcs-snap
+        owner: mthmulders
+      packageName: maven-central-search
+      remoteBuild: true
+    scoop:
+      active: RELEASE
+      repository:
+        active: RELEASE
+        name: scoop-mcs
+    artifacts:
+      - path: ./{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-linux-x86_64.zip
+        platform: linux-x86_64
+        extraProperties:
+          graalVMNativeImage: true
+      - path: ./{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-linux-x86_64.tar.gz
+        platform: linux-x86_64
+        extraProperties:
+          graalVMNativeImage: true
+      - path: ./{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-windows-x86_64.zip
+        platform: windows-x86_64
+      - path: ./{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-osx-x86_64.zip
+        platform: osx-x86_64
+        extraProperties:
+          graalVMNativeImage: true
+      - path: ./{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-osx-aarch_64.zip
+        platform: osx-aarch_64
+        extraProperties:
+          graalVMNativeImage: true
