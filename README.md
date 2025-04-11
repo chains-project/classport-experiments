@@ -14,6 +14,7 @@ The table contains the list of the projects used in the experiments, with the de
 | checkstyle*    | -          | Use /sun_checks.xml on the agent module    | 10.23.0     |
 | mcs    | -          | Search search   | 0.7.3     |
 | ttorrent    | from java 6 to java 8, embed with java 8, retrieve with java >= 17.  slf4j-log4j12 to 1.6.5   |     |  1.5     |
+| jacop    | -          | solve cpviz.CPvizSudoku    | 4.10.0     |
 
 *Checkstyle lints itself, to pass all the tests it is required to run checkstyle outside Classport
 
