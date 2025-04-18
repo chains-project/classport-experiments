@@ -10,6 +10,11 @@ INPUT_PDF="$SCRIPT_DIR/../resources/test.pdf"
 PROJECT_NAME="pdfbox"
 OUTPUT_DIR="../output"
 
+# check if the txt file in resources exists, if yes, delete them
+if [[ -f "$SCRIPT_DIR/../resources/test.txt" ]]; then
+  rm "$SCRIPT_DIR/../resources/test.txt"
+fi
+
 # Check if required files exist
 if [[ ! -f "$CLASS_PORT_AGENT" ]]; then
   echo "Error: CLASS_PORT_AGENT not found at $CLASS_PORT_AGENT"
