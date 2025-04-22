@@ -42,6 +42,9 @@ case $PROGRAM in
   graph)
     APP_JAR="$SCRIPT_DIR/../graphhopper/graphhopper/web/target/graphhopper-web-9.1.jar"
     ;;
+  commons)
+    APP_JAR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
+    ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
     echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph"
