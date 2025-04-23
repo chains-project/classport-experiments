@@ -36,6 +36,10 @@ case $PROGRAM in
     cd ../mcs-0.7.3
     mvn test -DargLine="-javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" ${argLine}"
     ;;
+  commons)
+    cd  ../commons-validator-1.9.0-src
+    mvn test -DargLine="-javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR"" -Drat.skip=true 
+    ;;
   ttorrent)
     cd ../ttorrent-ttorrent-1.5
     mvn test -DargLine="-javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" ${argLine}"
