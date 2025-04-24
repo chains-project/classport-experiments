@@ -19,6 +19,11 @@ case $PROGRAM in
     MERGED_REPO="../pdfbox-3.0.4/all-classport-files"
     PROJECT_FOLDER="../pdfbox-3.0.4"
   ;;
+  graph)
+    # Set the path for the merged local Maven repository
+    MERGED_REPO="../graphhopper/graphhopper/all-classport-files"
+    PROJECT_FOLDER="../graphhopper/graphhopper/"
+  ;;
   *)
     echo "Unknown program: $PROGRAM"
     exit 1
