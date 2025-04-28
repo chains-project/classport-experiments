@@ -3,7 +3,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name>"
-  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph"
+  echo "Supported programs: pdfbox, guice, ripper, checkstyle, jacop, mcs, ttorrent, graph"
   exit 1
 fi
 
@@ -23,6 +23,11 @@ case $PROGRAM in
     # Set the path for the merged local Maven repository
     MERGED_REPO="../graphhopper/graphhopper/all-classport-files"
     PROJECT_FOLDER="../graphhopper/graphhopper/"
+  ;;
+  guice)
+    # Set the path for the merged local Maven repository
+    MERGED_REPO="../guice-7.0.0/all-classport-files"
+    PROJECT_FOLDER="../guice-7.0.0"
   ;;
   *)
     echo "Unknown program: $PROGRAM"

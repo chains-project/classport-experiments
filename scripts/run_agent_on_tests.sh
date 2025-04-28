@@ -48,6 +48,10 @@ case $PROGRAM in
     cd ../graphhopper/graphhopper/web
     mvn test -DargLine="-javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" ${argLine}"
     ;;
+  guice)
+    cd ../guice-7.0.0
+    mvn test -DargLine="-javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR""
+  ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
     echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph"
