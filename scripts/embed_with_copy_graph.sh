@@ -1,18 +1,45 @@
 #!/bin/bash
 
+# Usage: ./process_multi_module.sh <project_directory> 
+# Example: ./process_multi_module.sh ../pdfbox-3.0.4 ../all-classport-files
+
+# Check if the required arguments are provided
+if [[ $# -ne 2 ]]; then
+    echo "Usage: $0 <project_directory> <clena_command>"   
+    exit 1
+fi
+
+# Input arguments
+PROJECT_DIR="$1"
+CLASSPORT_FILES_DIR="all-classport-files"
+CLEAN_COMMAND="$2"
+
+# Clean the classport-files directory
 # clean classport-files
 ./clean.sh --classport-files
-cd ../pdfbox-3.0.4
+
+# Navigate to the project directory
+echo "Navigating to project directory: $PROJECT_DIR"
+cd "../$PROJECT_DIR" || { echo "Project directory not found: $PROJECT_DIR"; exit 1; }
+
+# Clean the project
+echo "Cleaning the project..."
 mvn clean
 
+# Run the classport-maven-plugin to embed metadata
+echo "Running classport-maven-plugin to embed metadata..."
 mvn io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
-# Merge the classport-files
-cd ../scripts
-./post_process_local_repo.sh pdfbox
-cd ../pdfbox-3.0.4
+# Merge the classport-files (if applicable)
+if [[ -f "../../scripts/post_process_local_repo.sh" ]]; then
+    echo "Merging classport-files..."
+    cd ../../scripts || exit 1
+    ./post_process_local_repo.sh "$(basename "$CLEAN_COMMAND")"
+    cd "../$PROJECT_DIR" || exit 1
+fi
 
-# Loop through all modules in the pdfbox project
+# Process each module in the project
+echo "Processing modules in the project..."
 for module in $(find . -name "target" -type d | grep "/target$" | sed 's|/target||'); do
     echo "Processing module: $module"
 
@@ -40,7 +67,7 @@ done
 for module in $(find . -name "target" -type d | grep "/target$" | sed 's|/target||'); do
     echo "Updating JAR file for module: $module"
     instrumented_classes="$module/instrumented-classes"
-   
+
     # Find the JAR file in the target directory
     jar_file=$(find "$module/target" -maxdepth 1 -name "*.jar" | head -n 1)
 
@@ -48,31 +75,27 @@ for module in $(find . -name "target" -type d | grep "/target$" | sed 's|/target
     if [[ -f "$jar_file" ]]; then
         echo "Updating JAR file: $jar_file"
         jar uf "$jar_file" -C "$instrumented_classes" .
-        # Find the corresponding JAR file in the all-classport-files repository
-        all_classport_jar=$(find all-classport-files -name "$(basename "$jar_file")" | head -n 1)
 
-        # Replace the old JAR file in all-classport-files with the new one
+        # Replace the old JAR file in the classport-files directory
+        all_classport_jar=$(find "$CLASSPORT_FILES_DIR" -name "$(basename "$jar_file")" | head -n 1)
         if [[ -f "$all_classport_jar" ]]; then
             echo "Replacing $all_classport_jar with the updated JAR file"
             cp "$jar_file" "$all_classport_jar"
         else
-            echo "No matching JAR file found in all-classport-files for $jar_file"
+            echo "No matching JAR file found in $CLASSPORT_FILES_DIR for $jar_file"
         fi
     else
         echo "No JAR file found in $module/target"
     fi
 
+    # Remove the instrumented-classes folder
     if [[ -d "$instrumented_classes" ]]; then
-    echo "Removing instrumented-classes folder: $instrumented_classes"
-    rm -rf "$instrumented_classes"
+        echo "Removing instrumented-classes folder: $instrumented_classes"
+        rm -rf "$instrumented_classes"
     fi
 done
 
-# Package the parent module
-# mvn package -Dmaven.repo.local=all-classport-files -DskipTests 
-
-# instead of this, just repackage the app submodule with the all-classport-files
-cd app
+cd web
 mvn package -Dmaven.repo.local=../all-classport-files -DskipTests 
 
 echo "All modules processed."

@@ -17,4 +17,4 @@ check_for_exit_code() {
 
 java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" -jar ${PATH_TO_JAR} server ../graphhopper/config-example.yml
 
-#java -javaagent:/Users/serena/Dottorato/KTH/classport-dev/classport/classport-agent/target/classport-agent-0.1.0-SNAPSHOT.jar -jar ${PATH_TO_JAR} server config-example.yml
+#java -javaagent:/Users/serena/Dottorato/KTH/classport-dev/classport/classport-agent/target/classport-agent-0.1.0-SNAPSHOT.jar -jar /Users/serena/Dottorato/KTH/classport-dev/classport/classport-experiments/graphhopper/graphhopper/web/target/graphhopper-web-9.1.jar server config-example.yml
