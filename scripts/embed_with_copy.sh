@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Usage: ./process_multi_module.sh <project_directory> 
-# Example: ./process_multi_module.sh ../pdfbox-3.0.4 ../all-classport-files
+# Usage: ./embed_with_copy.sh <project_directory> <clena_command> <executable-module>
+# Example: ./embed_with_copy.sh pdfbox-3.0.4 pdfbox app
 
 # Check if the required arguments are provided
-if [[ $# -ne 2 ]]; then
-    echo "Usage: $0 <project_directory> <clena_command>"   
+if [[ $# -ne 3 ]]; then
+    echo "Usage: $0 <project_directory> <clena_command> <executable-module"   
     exit 1
 fi
 
@@ -13,10 +13,11 @@ fi
 PROJECT_DIR="$1"
 CLASSPORT_FILES_DIR="all-classport-files"
 CLEAN_COMMAND="$2"
+EXECUTABLE_MODULE="$3"
 
 # Clean the classport-files directory
 # clean classport-files
-./clean.sh --classport-files
+./clean.sh -cf
 
 # Navigate to the project directory
 echo "Navigating to project directory: $PROJECT_DIR"
@@ -95,7 +96,7 @@ for module in $(find . -name "target" -type d | grep "/target$" | sed 's|/target
     fi
 done
 
-cd app
+cd $EXECUTABLE_MODULE
 mvn package -Dmaven.repo.local=../all-classport-files -DskipTests 
 
 echo "All modules processed."

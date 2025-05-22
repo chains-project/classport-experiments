@@ -71,7 +71,6 @@ done
 # Package the parent module
 # mvn package -Dmaven.repo.local=all-classport-files -DskipTests 
 
-# instead of this, just repackage the app submodule with the all-classport-files
 cd app
 mvn package -Dmaven.repo.local=../all-classport-files -DskipTests 
 
