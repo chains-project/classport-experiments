@@ -2,7 +2,7 @@
 
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 <program_name>"
+  echo "Usage: $0 <program_name> [--correctness] "
   echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph"
   exit 1
 fi
@@ -52,4 +52,42 @@ case $PROGRAM in
     ;;
 esac
 
-java -jar ${ANALYSER_JAR} -printList ${APP_JAR} 
+if [[ "$2" == "--correctness" ]]; then
+    
+    # Run mvn dependency:list and process the output
+    MODULE_DIR=$(dirname "$APP_JAR")
+    java -jar ${ANALYSER_JAR} -printList ${APP_JAR} > $MODULE_DIR/../embedded.txt
+    cd "$MODULE_DIR/../" || exit 1
+    
+    echo "Running correctness check..."
+    mvn dependency:list > mvn.txt
+
+    # Extract dependencies, format them, and sort
+    awk '/^\[INFO\]/ && $2 ~ /.*:.*:jar:.*/ { split($2, a, ":"); print a[1] ":" a[2] ":jar:" a[4] }' mvn.txt | sort > mvn_sorted.txt
+    mv mvn_sorted.txt mvn.txt
+
+    # Sort the output of the analyzer
+    sort embedded.txt > embedded_sorted.txt
+    mv embedded_sorted.txt embedded.txt
+
+    Compare the two sorted files
+    echo "-------------------"
+    echo "List of dependencies in the embedded jar:"
+    cat embedded.txt
+    echo "-------------------"
+    echo "List of dependencies in the mvn dependency:list:"
+    cat mvn.txt
+    echo "-------------------"
+    echo "List of wrong dependencies:"
+    comm -23 embedded.txt mvn.txt 
+    echo "-------------------"
+
+    # Delete the temporary files
+    rm mvn.txt embedded.txt
+
+    exit 0
+else
+    # Run the classport-analyser
+    java -jar ${ANALYSER_JAR} -printList ${APP_JAR} 
+fi
+
