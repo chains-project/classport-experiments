@@ -52,7 +52,7 @@ cd "$PROJECT_DIR" || exit 1
 mvn clean
 # Measure baseline build time
 echo "Measuring baseline build time..."
-BASELINE_TIME=$( { time mvn compile generate-resources; } 2>&1 | grep real | awk '{print $2}' )
+BASELINE_TIME=$( { time mvn compile; } 2>&1 | grep real | awk '{print $2}' )
 
 # Clean up any previous builds
 mvn clean
