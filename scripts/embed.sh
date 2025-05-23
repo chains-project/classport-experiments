@@ -24,6 +24,9 @@ case $PROJECT_NAME in
     ttorrent)
         PROJECT_DIR="../ttorrent-ttorrent-1.5"
         ;;
+    ripper)
+        PROJECT_DIR="../certificate-ripper-2.4.1"
+        ;;  
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
         echo "Supported projects: jacop, mcs, ttorrent"
@@ -31,13 +34,14 @@ case $PROJECT_NAME in
         ;;
 esac
 
+# Clean the classport-files directory
+echo "Cleaning classport-files..."
+./clean.sh -cf 
 # Navigate to the project directory
 echo "Navigating to project directory: $PROJECT_DIR"
 cd "$PROJECT_DIR" || { echo "Project directory not found: $PROJECT_DIR"; exit 1; }
 
-# Clean the classport-files directory
-echo "Cleaning classport-files..."
-./clean.sh -cf
+
 # Clean the project
 echo "Cleaning the project..."
 mvn clean
@@ -55,6 +59,14 @@ case $PROJECT_NAME in
     ttorrent)
         APP_JAR="cli/target/ttorrent-cli-1.5-shaded.jar"
         ;;
+    ripper)
+        APP_JAR="target/crip.jar"
+        ;;
+    *)
+        echo "Error: Unsupported project '$PROJECT_NAME'"
+        echo "Supported projects: jacop, mcs, ttorrent"
+        exit 1
+        ;;  
 esac
 BEFORE_SIZE=$(stat -f%z "$APP_JAR")
 echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
