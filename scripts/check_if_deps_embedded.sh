@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Usage: ./check_if_deps_embedded.sh <program_name> [--correctness]
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> [--correctness] "

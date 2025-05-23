@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Usage: ./compute_build_overhead.sh <program_name>
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> "

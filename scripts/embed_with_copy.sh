@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# Usage: ./embed_with_copy.sh <project_directory> <clena_command> <executable-module>
+# Usage: ./embed_with_copy.sh <project_directory> <program> <executable-module>
 # Example: ./embed_with_copy.sh pdfbox-3.0.4 pdfbox app
 
 # Check if the required arguments are provided
 if [[ $# -ne 3 ]]; then
-    echo "Usage: $0 <project_directory> <clena_command> <executable-module"   
+    echo "Usage: $0 <project_directory> <program> <executable-module"   
     exit 1
 fi
 
 # Input arguments
 PROJECT_DIR="$1"
 CLASSPORT_FILES_DIR="all-classport-files"
-CLEAN_COMMAND="$2"
+PROGRAM="$2"
 EXECUTABLE_MODULE="$3"
 
 # Clean the classport-files directory
@@ -27,6 +27,26 @@ cd "../$PROJECT_DIR" || { echo "Project directory not found: $PROJECT_DIR"; exit
 echo "Cleaning the project..."
 mvn clean
 
+# Measure size of the jar without embedding
+echo "Measuring size of the JAR without embedding..."
+mvn package 
+case $PROGRAM in
+  pdfbox)
+    APP_JAR="target/pdfbox-app-3.0.4.jar"
+    ;;
+*)
+    echo "Error: Unsupported program '$PROGRAM'"
+    echo "Supported programs: pdfbox"
+    exit 1
+    ;;
+esac
+BEFORE_SIZE=$(stat -f%z "$EXECUTABLE_MODULE/$APP_JAR")
+echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
+
+# Clean the project
+echo "Cleaning the project..."
+mvn clean
+
 # Run the classport-maven-plugin to embed metadata
 echo "Running classport-maven-plugin to embed metadata..."
 mvn io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
@@ -35,7 +55,7 @@ mvn io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 if [[ -f "../scripts/post_process_local_repo.sh" ]]; then
     echo "Merging classport-files..."
     cd ../scripts || exit 1
-    ./post_process_local_repo.sh "$(basename "$CLEAN_COMMAND")"
+    ./post_process_local_repo.sh "$(basename "$PROGRAM")"
     cd "../$PROJECT_DIR" || exit 1
 fi
 
@@ -98,5 +118,24 @@ done
 
 cd $EXECUTABLE_MODULE
 mvn package -Dmaven.repo.local=../all-classport-files -DskipTests 
+
+# Measure size of the jar after embedding
+echo "Measuring size of the JAR after embedding..."
+AFTER_SIZE=$(stat -f%z "$APP_JAR")
+
+# Compute the size overhead
+SIZE_OVERHEAD=$(echo "$AFTER_SIZE - $BEFORE_SIZE" | bc)
+
+# Compute the percentage overhead
+PERCENTAGE_OVERHEAD=$(echo "scale=2; ($SIZE_OVERHEAD / $BEFORE_SIZE) * 100" | bc)
+
+# Output the results
+echo "-------------------------------"
+echo "Size of JAR before embedding: ${BEFORE_SIZE} bytes"
+echo "Size of JAR after embedding: ${AFTER_SIZE} bytes"
+echo "Size overhead: ${SIZE_OVERHEAD} bytes"
+echo "Percentage overhead: ${PERCENTAGE_OVERHEAD}%"
+echo "-------------------------------"
+
 
 echo "All modules processed."
