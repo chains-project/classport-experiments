@@ -5,7 +5,7 @@
 cd ../pdfbox-3.0.4
 mvn clean
 
-mvn io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
+mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
 # Merge the classport-files
 cd ../scripts
