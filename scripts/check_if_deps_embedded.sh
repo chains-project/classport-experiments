@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> [--correctness] "
-  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph"
+  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph, batik"
   exit 1
 fi
 
@@ -46,9 +46,12 @@ case $PROGRAM in
   commons)
     APP_JAR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
     ;;
+  batik)
+    APP_JAR="$SCRIPT_DIR/../batikwrapper/target/batikwrapper-1.0-SNAPSHOT.jar"
+    ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
-    echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph"
+    echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph, batik"
     exit 1
     ;;
 esac
@@ -71,7 +74,6 @@ if [[ "$2" == "--correctness" ]]; then
     sort embedded.txt > embedded_sorted.txt
     mv embedded_sorted.txt embedded.txt
 
-    Compare the two sorted files
     echo "-------------------"
     echo "List of dependencies in the embedded jar:"
     cat embedded.txt

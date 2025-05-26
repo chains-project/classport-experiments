@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> "
-  echo "Supported programs: pdfbox"
+  echo "Supported programs: pdfbox, mcs, ripper, batik"
   exit 1
 fi
 
@@ -19,26 +19,30 @@ case $PROGRAM in
   pdfbox)
     PROJECT_DIR="$SCRIPT_DIR/../pdfbox-3.0.4"
     ;;
-#   ripper)
-#     APP_JAR="$SCRIPT_DIR/../certificate-ripper-2.4.1/target/crip.jar"
-#     ;;
+  ripper)
+    PROJECT_DIR="$SCRIPT_DIR/../certificate-ripper-2.4.1"
+    ;;
+  mcs)
+    PROJECT_DIR="$SCRIPT_DIR/../mcs-0.7.3"
+    ;;
+  batik)
+    PROJECT_DIR="$SCRIPT_DIR/../batikwrapper"
+    ;;
 #   checkstyle)
-#     APP_JAR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0-all.jar"
+#     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0-all.jar"
 #     ;;
 #   jacop)
-#     APP_JAR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
+#     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
 #     ;;
-#   mcs)
-#     APP_JAR="$SCRIPT_DIR/../mcs-0.7.3/target/mcs-0.7.3.jar"
-#     ;;
+
 #   ttorrent)
-#     APP_JAR="$SCRIPT_DIR/../ttorrent-ttorrent-1.5/cli/target/ttorrent-cli-1.5-shaded.jar"
+#     PROJECT_DIR="$SCRIPT_DIR/../ttorrent-ttorrent-1.5/cli/target/ttorrent-cli-1.5-shaded.jar"
 #     ;;
 #   graph)
-#     APP_JAR="$SCRIPT_DIR/../graphhopper/graphhopper/web/target/graphhopper-web-9.1.jar"
+#     PROJECT_DIR="$SCRIPT_DIR/../graphhopper/graphhopper/web/target/graphhopper-web-9.1.jar"
 #     ;;
 #   commons)
-#     APP_JAR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
+#     PROJECT_DIR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
 #     ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
@@ -49,16 +53,16 @@ esac
 
 cd "$PROJECT_DIR" || exit 1
 # clean up any previous builds
-mvn clean
+mvn clean 
 # Measure baseline build time
 echo "Measuring baseline build time..."
 BASELINE_TIME=$( { time mvn compile; } 2>&1 | grep real | awk '{print $2}' )
 
 # Clean up any previous builds
-mvn clean
+mvn clean 
 # Measure plugin execution time
 echo "Measuring plugin execution time..."
-PLUGIN_TIME=$( { time mvn io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed; } 2>&1 | grep real | awk '{print $2}' )
+PLUGIN_TIME=$( { time mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed; } 2>&1 | grep real | awk '{print $2}' )
 
 # Convert times to seconds
 BASELINE_SECONDS=$(echo $BASELINE_TIME | awk -Fm '{print $1 * 60 + $2}')

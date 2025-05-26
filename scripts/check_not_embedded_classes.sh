@@ -10,7 +10,14 @@ fi
 input_file="$1"
 
 # Define core Java packages
-core_packages=("java/" "javax/" "jdk/" "sun/" "com/apple/" "apple/")
+core_packages=("java/" "javax/" "jdk/" "sun/"   "com/sun/"
+  "com/oracle/"
+  "org/ietf/"
+  "org/jcp/"
+  "org/omg/"
+  "org/w3c/"
+  "org/xml/"
+  "org/jcp/" "com/apple/" "apple/")
 
 # Read the input file line by line
 while IFS= read -r class_name; do
