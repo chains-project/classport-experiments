@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> [--correctness] "
-  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph, batik"
+  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph, batik, h2"
   exit 1
 fi
 
@@ -49,9 +49,12 @@ case $PROGRAM in
   batik)
     APP_JAR="$SCRIPT_DIR/../batikwrapper/target/batikwrapper-1.0-SNAPSHOT.jar"
     ;;
+  h2)
+    APP_JAR="$SCRIPT_DIR/../h2wrapper/target/h2wrapper-1.0-SNAPSHOT.jar"
+    ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
-    echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph, batik"
+    echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph, batik, h2"
     exit 1
     ;;
 esac

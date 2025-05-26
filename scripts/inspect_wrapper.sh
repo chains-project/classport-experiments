@@ -3,7 +3,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 2 ]]; then
     echo "Usage: $0 <project_name> <res_dir>" 
-    echo "Supported projects: jacop, mcs, batik, ripper"
+    echo "Supported projects: jacop, mcs, batik, ripper, h2"
     exit 1
 fi
 
@@ -31,6 +31,10 @@ case $PROJECT_NAME in
         if [[ -d "$SCRIPT_DIR/../batikwrapper/src/main/resources/output" ]]; then
             rm -rf "$SCRIPT_DIR/../batikwrapper/src/main/resources/output"
         fi
+        ;;
+    h2)
+        APP_JAR="$SCRIPT_DIR/../h2wrapper/target/h2wrapper-1.0-SNAPSHOT.jar"
+        RES_DIR=""
         ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"

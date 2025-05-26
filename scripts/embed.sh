@@ -6,7 +6,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 1 ]]; then
     echo "Usage: $0 <project_name>"
-    echo "Supported projects: jacop, mcs, batik, ripper"
+    echo "Supported projects: jacop, mcs, batik, ripper, h2"
     exit 1
 fi
 
@@ -30,9 +30,12 @@ case $PROJECT_NAME in
     batik)
         PROJECT_DIR="../batikwrapper"
         ;;
+    h2)
+        PROJECT_DIR="../h2wrapper"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, batik, ripper"
+        echo "Supported projects: jacop, mcs, batik, ripper, h2"
         exit 1
         ;;
 esac
@@ -68,9 +71,12 @@ case $PROJECT_NAME in
     batik)
         APP_JAR="target/batikwrapper-1.0-SNAPSHOT.jar"
         ;;
+    h2)
+        APP_JAR="target/h2wrapper-1.0-SNAPSHOT.jar"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, ttorrent"
+        echo "Supported projects: jacop, mcs, ttorrent, h2"
         exit 1
         ;;  
 esac
