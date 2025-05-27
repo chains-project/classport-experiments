@@ -6,7 +6,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 1 ]]; then
     echo "Usage: $0 <project_name>"
-    echo "Supported projects: jacop, mcs, batik, ripper, h2"
+    echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle"
     exit 1
 fi
 
@@ -33,9 +33,12 @@ case $PROJECT_NAME in
     h2)
         PROJECT_DIR="../h2wrapper"
         ;;
+    checkstyle)
+        PROJECT_DIR="../checkstyle-checkstyle-10.23.0"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, batik, ripper, h2"
+        echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle"
         exit 1
         ;;
 esac
@@ -54,7 +57,7 @@ mvn clean
 
 # Measure size of the jar without embedding
 echo "Measuring size of the JAR without embedding..."
-mvn package
+mvn package -DskipTests
 case $PROJECT_NAME in
     jacop)
         APP_JAR="target/jacop-4.10.0.jar"
@@ -74,9 +77,12 @@ case $PROJECT_NAME in
     h2)
         APP_JAR="target/h2wrapper-1.0-SNAPSHOT.jar"
         ;;
+    checkstyle)
+        APP_JAR="target/checkstyle-10.23.0-all.jar"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, ttorrent, h2"
+        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper"
         exit 1
         ;;  
 esac

@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> "
-  echo "Supported programs: pdfbox, mcs, ripper, batik"
+  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle"
   exit 1
 fi
 
@@ -28,9 +28,9 @@ case $PROGRAM in
   batik)
     PROJECT_DIR="$SCRIPT_DIR/../batikwrapper"
     ;;
-#   checkstyle)
-#     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0-all.jar"
-#     ;;
+  checkstyle)
+    PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0-all.jar"
+    ;;
 #   jacop)
 #     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
 #     ;;
@@ -46,7 +46,7 @@ case $PROGRAM in
 #     ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
-    echo "Supported programs: pdfbox"
+    echo "Supported programs: pdfbox, checkstyle"
     exit 1
     ;;
 esac
