@@ -29,7 +29,7 @@ case $PROGRAM in
     PROJECT_DIR="$SCRIPT_DIR/../batikwrapper"
     ;;
   checkstyle)
-    PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0-all.jar"
+    PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0"
     ;;
 #   jacop)
 #     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
