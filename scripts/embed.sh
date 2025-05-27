@@ -43,6 +43,12 @@ case $PROJECT_NAME in
         ;;
 esac
 
+# Define extra mvn args conditionally
+EXTRA_MVN_ARGS=()
+if [[ "$PROJECT_NAME" == "checkstyle" ]]; then
+    EXTRA_MVN_ARGS+=(-P assembly)  
+fi
+
 # Clean the classport-files directory
 echo "Cleaning classport-files..."
 ./clean.sh -cf 
@@ -57,7 +63,7 @@ mvn clean
 
 # Measure size of the jar without embedding
 echo "Measuring size of the JAR without embedding..."
-mvn package -DskipTests
+mvn "${EXTRA_MVN_ARGS[@]}" package -DskipTests
 case $PROJECT_NAME in
     jacop)
         APP_JAR="target/jacop-4.10.0.jar"
@@ -86,7 +92,13 @@ case $PROJECT_NAME in
         exit 1
         ;;  
 esac
-BEFORE_SIZE=$(stat -f%z "$APP_JAR")
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    STAT_CMD=(stat -f%z)
+else
+    STAT_CMD=(stat -c%s)
+fi
+
+BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
 # Clean the project again
 echo "Cleaning the project again..."
@@ -98,7 +110,7 @@ mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
 # Package the project
 echo "Packaging the project..."
-mvn package -Dmaven.repo.local=classport-files -DskipTests
+mvn "${EXTRA_MVN_ARGS[@]}" package -Dmaven.repo.local=classport-files -DskipTests
 
 echo "Embedding and packaging completed for project: $PROJECT_NAME"
 
@@ -109,7 +121,14 @@ if [[ ! -f "$APP_JAR" ]]; then
     exit 1
 fi
 
-AFTER_SIZE=$(stat -f%z "$APP_JAR") # Use -f%z for macOS, -c%s for Linux
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    STAT_CMD=(stat -f%z)
+else
+    STAT_CMD=(stat -c%s)
+fi
+
+AFTER_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
+
 echo "Size of the JAR after embedding: $AFTER_SIZE bytes"
 
 # Ensure BEFORE_SIZE is set
