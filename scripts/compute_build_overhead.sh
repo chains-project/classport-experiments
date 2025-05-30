@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> "
-  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle"
+  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle, zxing"
   exit 1
 fi
 
@@ -30,6 +30,9 @@ case $PROGRAM in
     ;;
   checkstyle)
     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0"
+    ;;
+  zxing)
+    PROJECT_DIR="$SCRIPT_DIR/../zxing-wrapper"
     ;;
 #   jacop)
 #     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"

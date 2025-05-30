@@ -3,7 +3,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 2 ]]; then
     echo "Usage: $0 <project_name> <res_dir>" 
-    echo "Supported projects: jacop, mcs, batik, ripper, h2"
+    echo "Supported projects: jacop, mcs, batik, ripper, h2, zxing"
     exit 1
 fi
 
@@ -35,6 +35,9 @@ case $PROJECT_NAME in
     h2)
         APP_JAR="$SCRIPT_DIR/../h2wrapper/target/h2wrapper-1.0-SNAPSHOT.jar"
         RES_DIR=""
+        ;;
+    zxing)
+        APP_JAR="$SCRIPT_DIR/../zxing-wrapper/target/zxing-workload-1.0-jar-with-dependencies.jar"
         ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"

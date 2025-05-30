@@ -6,7 +6,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 1 ]]; then
     echo "Usage: $0 <project_name>"
-    echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle"
+    echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle, zxing"
     exit 1
 fi
 
@@ -36,9 +36,12 @@ case $PROJECT_NAME in
     checkstyle)
         PROJECT_DIR="../checkstyle-checkstyle-10.23.0"
         ;;
+    zxing)
+        PROJECT_DIR="../zxing-wrapper"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle"
+        echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle, zxing"
         exit 1
         ;;
 esac
@@ -86,9 +89,12 @@ case $PROJECT_NAME in
     checkstyle)
         APP_JAR="target/checkstyle-10.23.0-all.jar"
         ;;
+    zxing)
+        APP_JAR="target/zxing-workload-1.0-jar-with-dependencies.jar"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper"
+        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper, zxing"
         exit 1
         ;;  
 esac
