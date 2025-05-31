@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # clean classport-files
-./clean.sh --classport-files
+./clean.sh -cf
 cd ../pdfbox-3.0.4
 mvn clean
 
