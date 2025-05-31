@@ -40,7 +40,14 @@ case $PROGRAM in
     exit 1
     ;;
 esac
-BEFORE_SIZE=$(stat -f%z "$EXECUTABLE_MODULE/$APP_JAR")
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    STAT_CMD=(stat -f%z)
+else
+    STAT_CMD=(stat -c%s)
+fi
+
+BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
 
 # Clean the project
