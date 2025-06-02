@@ -127,8 +127,14 @@ cd $EXECUTABLE_MODULE
 mvn package -Dmaven.repo.local=../all-classport-files -DskipTests 
 
 # Measure size of the jar after embedding
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    STAT_CMD=(stat -f%z)
+else
+    STAT_CMD=(stat -c%s)
+fi
+
 echo "Measuring size of the JAR after embedding..."
-AFTER_SIZE=$(stat -f%z "$APP_JAR")
+AFTER_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 
 # Compute the size overhead
 SIZE_OVERHEAD=$(echo "$AFTER_SIZE - $BEFORE_SIZE" | bc)
