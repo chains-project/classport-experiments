@@ -16,4 +16,4 @@ if [ ! -d "../output/test-on-output" ]; then
 fi
 
 # Process the file
-cut -d',' -f5 ../output/"$OUTPUT_CSV" | tail -n +2 | sort | uniq > ../output/test-on-output/"$OUTPUT_CSV"_test.txt
+cut -d',' -f5 ../output/"$OUTPUT_CSV" | tail -n +2 | sort | uniq -c > ../output/test-on-output/"$OUTPUT_CSV"_test.txt
