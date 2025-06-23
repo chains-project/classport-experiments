@@ -78,7 +78,7 @@ measure_time() {
       END=$(date +%s%N)
     else
       START=$(date +%s%N)
-      $JAVA -javaagent:$AGENT_JAR=$PROJECT_NAME,$OUTPUT_DIR -jar $APP_JAR $JAVA_COMMAND >/dev/null 2>&1
+      $JAVA -javaagent:$AGENT_JAR="$PROJECT_NAME,$OUTPUT_DIR,class" -jar $APP_JAR $JAVA_COMMAND >/dev/null 2>&1
       if [ "$PROGRAM" = "ttorrent" ]; then
         # Remove the sample.txt file if it exists
         rm -f "$OUTPUT_DIR/sample.txt"
