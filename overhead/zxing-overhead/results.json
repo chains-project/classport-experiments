@@ -1,0 +1,113 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.ZxingBenchmark.decodeAllQRCodes_no_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "resourceDir" : "src/main/resources"
+        },
+        "primaryMetric" : {
+            "score" : 56.184035380320644,
+            "scoreError" : 2.9226016078034673,
+            "scoreConfidence" : [
+                53.26143377251718,
+                59.10663698812411
+            ],
+            "scorePercentiles" : {
+                "0.0" : 55.18467016483517,
+                "50.0" : 56.19625786516854,
+                "90.0" : 57.058187539772725,
+                "95.0" : 57.058187539772725,
+                "99.0" : 57.058187539772725,
+                "99.9" : 57.058187539772725,
+                "99.99" : 57.058187539772725,
+                "99.999" : 57.058187539772725,
+                "99.9999" : 57.058187539772725,
+                "100.0" : 57.058187539772725
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    56.75766690960452,
+                    55.72339442222222,
+                    55.18467016483517,
+                    56.19625786516854,
+                    57.058187539772725
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.ZxingBenchmark.decodeAllQRCodes_with_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+            "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=zxing-overhead,../output,dependency"
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "resourceDir" : "src/main/resources"
+        },
+        "primaryMetric" : {
+            "score" : 58.442207317947826,
+            "scoreError" : 4.5392841676378355,
+            "scoreConfidence" : [
+                53.90292315030999,
+                62.981491485585664
+            ],
+            "scorePercentiles" : {
+                "0.0" : 57.067727357954546,
+                "50.0" : 59.134930994117646,
+                "90.0" : 59.44109324260355,
+                "95.0" : 59.44109324260355,
+                "99.0" : 59.44109324260355,
+                "99.9" : 59.44109324260355,
+                "99.99" : 59.44109324260355,
+                "99.999" : 59.44109324260355,
+                "99.9999" : 59.44109324260355,
+                "100.0" : 59.44109324260355
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    57.24886880571429,
+                    59.44109324260355,
+                    59.318416189349115,
+                    59.134930994117646,
+                    57.067727357954546
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
