@@ -31,5 +31,8 @@ if [[ ! -f "$INPUT_PDF" ]]; then
   exit 1
 fi
 
+# Create the output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+
 # Run the command
 java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" -jar "$PDFBOX_APP" export:text -i="$INPUT_PDF"

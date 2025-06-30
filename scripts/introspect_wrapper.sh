@@ -3,7 +3,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 2 ]]; then
     echo "Usage: $0 <project_name> <res_dir>" 
-    echo "Supported projects: jacop, mcs, batik, ripper, h2, zxing"
+    echo "Supported projects: batik, zxing"
     exit 1
 fi
 
@@ -51,6 +51,8 @@ if [[ ! -f "$APP_JAR" ]]; then
   exit 1
 fi
 
+# Create the output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
 
 # Run the command
 java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" -jar "$APP_JAR" "$RES_DIR"
