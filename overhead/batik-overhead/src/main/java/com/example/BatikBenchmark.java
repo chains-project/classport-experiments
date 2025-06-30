@@ -43,7 +43,7 @@ public class BatikBenchmark {
 
     @Benchmark
     @Fork(jvmArgsPrepend = {
-        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=batik_overhead,../output"
+        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=batik_overhead,../output,dependency"
     })
     public void batik_with_agent() throws Exception {
         runTranscoding();

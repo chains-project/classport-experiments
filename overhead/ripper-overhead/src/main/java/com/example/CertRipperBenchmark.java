@@ -32,7 +32,7 @@ public class CertRipperBenchmark {
 
     @Benchmark
     @Fork(jvmArgsPrepend = {
-        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=cert_ripper_overhead,../output"
+        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=cert_ripper_overhead,../output,dependency"
     })
     public void ripper_with_agent() {
         runCrip();
