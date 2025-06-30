@@ -55,7 +55,7 @@ public class ZxingBenchmark {
 
     @Benchmark
     @Fork(jvmArgsPrepend = {
-        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=zxing-overhead,../output"
+        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=zxing-overhead,../output,dependency"
     })
     public void decodeAllQRCodes_with_agent() throws IOException {
         for (int i = 0; i < 10; i++) {

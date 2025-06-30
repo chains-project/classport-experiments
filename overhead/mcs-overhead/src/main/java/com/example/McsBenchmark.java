@@ -23,7 +23,7 @@ public class McsBenchmark {
 
     @Benchmark
     @Fork(jvmArgsPrepend = {
-        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=mcs_overhead,../output"
+        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=mcs_overhead,../output,dependency"
     })
     public void mcs_search_with_agent() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         runSearch();

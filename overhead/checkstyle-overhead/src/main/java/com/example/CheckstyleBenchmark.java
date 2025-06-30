@@ -71,7 +71,7 @@ public class CheckstyleBenchmark {
 
     @Benchmark
     @Fork(jvmArgsPrepend = {
-        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=checkstyle_overhead,../output"
+        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=checkstyle_overhead,../output,dependency"
     })
     public int checkstyle_with_agent() throws Exception {
         return checker.process(filesToProcess);
