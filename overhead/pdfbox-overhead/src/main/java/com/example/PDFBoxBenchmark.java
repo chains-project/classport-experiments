@@ -37,7 +37,7 @@ public class PDFBoxBenchmark {
 
     @Benchmark
     @Fork(jvmArgsPrepend = {
-        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=pdfbox_overhead,../output"
+        "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=pdfbox_overhead,../output,dependency"
     })
     public void pdfbox_with_agent(PDFFiles files) throws IOException {
         runPdfBox(files);
