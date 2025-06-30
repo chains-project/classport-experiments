@@ -1,0 +1,5 @@
+group,artefact,version
+com.fasterxml.jackson.jr,jackson-jr-objects,2.18.2
+info.picocli,picocli,4.7.6
+com.fasterxml.jackson.core,jackson-core,2.18.2
+it.mulders,mcs,0.7.3

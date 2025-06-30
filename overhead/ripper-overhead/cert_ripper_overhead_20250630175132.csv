@@ -1,0 +1,6 @@
+group,artefact,version
+org.slf4j,slf4j-api,2.0.17
+io.github.hakky54,sslcontext-kickstart,9.1.0
+io.github.hakky54,certificate-ripper,1.0.0
+info.picocli,picocli,4.7.6
+org.slf4j,slf4j-simple,2.0.17
