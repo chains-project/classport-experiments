@@ -23,4 +23,4 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 # Run the command
-java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" -jar "$RIPPER_APP" print --url=https://chains.proj.kth.se/
+java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR",dependency -jar "$RIPPER_APP" print --url=https://chains.proj.kth.se/

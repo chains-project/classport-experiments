@@ -35,4 +35,4 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 # Run the command
-java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" -jar "$PDFBOX_APP" export:text -i="$INPUT_PDF"
+java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR",dependency -jar "$PDFBOX_APP" export:text -i="$INPUT_PDF"
