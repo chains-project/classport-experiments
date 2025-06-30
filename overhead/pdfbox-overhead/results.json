@@ -1,0 +1,107 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.PDFBoxBenchmark.pdfbox_no_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 188.42426208155354,
+            "scoreError" : 24.41168123184568,
+            "scoreConfidence" : [
+                164.01258084970786,
+                212.8359433133992
+            ],
+            "scorePercentiles" : {
+                "0.0" : 181.07853471428572,
+                "50.0" : 188.97670132075473,
+                "90.0" : 194.9048046730769,
+                "95.0" : 194.9048046730769,
+                "99.0" : 194.9048046730769,
+                "99.9" : 194.9048046730769,
+                "99.99" : 194.9048046730769,
+                "99.999" : 194.9048046730769,
+                "99.9999" : 194.9048046730769,
+                "100.0" : 194.9048046730769
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    194.25746082692308,
+                    194.9048046730769,
+                    188.97670132075473,
+                    182.90380887272727,
+                    181.07853471428572
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.PDFBoxBenchmark.pdfbox_with_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+            "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=pdfbox_overhead,../output,dependency"
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 189.81547066542703,
+            "scoreError" : 40.15130692767437,
+            "scoreConfidence" : [
+                149.66416373775266,
+                229.9667775931014
+            ],
+            "scorePercentiles" : {
+                "0.0" : 183.33043625454545,
+                "50.0" : 186.52642937037038,
+                "90.0" : 208.17846265306122,
+                "95.0" : 208.17846265306122,
+                "99.0" : 208.17846265306122,
+                "99.9" : 208.17846265306122,
+                "99.99" : 208.17846265306122,
+                "99.999" : 208.17846265306122,
+                "99.9999" : 208.17846265306122,
+                "100.0" : 208.17846265306122
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    186.52642937037038,
+                    183.52782934545453,
+                    183.33043625454545,
+                    187.5141957037037,
+                    208.17846265306122
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

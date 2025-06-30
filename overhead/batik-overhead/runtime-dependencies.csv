@@ -1,0 +1,4 @@
+group,artefact,version
+org.apache.xmlgraphics,batik-all,1.17
+xml-apis,xml-apis-ext,1.3.04
+com.example,batikwrapper,1.0-SNAPSHOT

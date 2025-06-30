@@ -1,0 +1,5 @@
+group,artefact,version
+com.google.zxing,core,3.5.3
+com.github.jai-imageio,jai-imageio-core,1.4.0
+com.example,zxing-workload,1.0
+com.google.zxing,javase,3.5.3
