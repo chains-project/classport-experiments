@@ -1,3 +1,0 @@
-output ["s: ",show(s),"\n","c: ",show(c),"\n"];
-set of int: s;
-int: c = card(s);
