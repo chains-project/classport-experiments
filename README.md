@@ -75,26 +75,23 @@ cd classport-experiments/scripts
 ./embed_with_copy.sh pdfbox-3.0.4 pdfbox app
 ```
 
-##### Dependencies completeness
+##### Class completeness
 
-Check the dependency completeness:
+Check the class completeness:
 
 ```bash
 ./check_if_deps_embedded.sh <name-of-the-project>
 ```
 where *name-of-the-project* can be: pdfbox, mcs, ripper, batik, checkstyle, or zxing.
 
-The output can be compared with the ground truth, which is computed as:
+The output reports the number of embedded and not embedded classes. It also reports the list of the not embedded files to show that there are no classes but other files, such as images, that are not executed by the JVM and are not part of our study.
 
+##### Dependency completeness
 ```bash
-cd <root-project-folder>
-mvn dependency:list
+./check_if_deps_embedded.sh <name-of-the-project> --deps
 ```
 
-##### Class completeness
-```bash
-
-```
+The output lists the embedded dependencies and the ground truth.
 
 ##### Build time overhead
 ```bash

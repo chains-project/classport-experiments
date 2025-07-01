@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Usage: ./check_if_deps_embedded.sh <program_name> [--correctness]
+# Usage: ./check_if_deps_embedded.sh <program_name> [--deps]
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 <program_name> [--correctness] "
+  echo "Usage: $0 <program_name> [--deps] "
   echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph, batik, h2, zxing"
   exit 1
 fi
@@ -12,11 +12,18 @@ fi
 PROGRAM=$1
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ANALYSER_JAR="$SCRIPT_DIR/../../classport-analyser/target/classport-analyser-0.1.0-SNAPSHOT.jar"
+ANALYSER_JAR_COMPLETENESS="$SCRIPT_DIR/../../classport-analyser/target/completeness-analyser.jar"
+ANALYSER_JAR_CORRECTNESS="$SCRIPT_DIR/../../classport-analyser/target/correctness-analyzer.jar"
 
 # Check if the classport-analyser jar file exists
-if [ ! -f "$ANALYSER_JAR" ]; then
-  echo "Error: classport-analyser jar file not found at $ANALYSER_JAR"
+if [ ! -f "$ANALYSER_JAR_COMPLETENESS" ]; then
+  echo "Error: classport-analyser jar file not found at $ANALYSER_JAR_COMPLETENESS"
+  exit 1
+fi
+
+# Check if the classport-analyser jar file exists for correctness
+if [ ! -f "$ANALYSER_JAR_CORRECTNESS" ]; then
+  echo "Error: classport-analyser jar file not found at $ANALYSER_JAR_CORRECTNESS"
   exit 1
 fi
 
@@ -62,11 +69,11 @@ case $PROGRAM in
     ;;
 esac
 
-if [[ "$2" == "--correctness" ]]; then
+if [[ "$2" == "--deps" ]]; then
     
     # Run mvn dependency:list and process the output
     MODULE_DIR=$(dirname "$APP_JAR")
-    java -jar ${ANALYSER_JAR} -printList ${APP_JAR} > $MODULE_DIR/../embedded.txt
+    java -jar ${ANALYSER_JAR_CORRECTNESS} -printList ${APP_JAR} > $MODULE_DIR/../embedded.txt
     cd "$MODULE_DIR/../" || exit 1
     
     echo "Running correctness check..."
@@ -97,6 +104,6 @@ if [[ "$2" == "--correctness" ]]; then
     exit 0
 else
     # Run the classport-analyser
-    java -jar ${ANALYSER_JAR} -printList ${APP_JAR} 
+    java -jar ${ANALYSER_JAR_COMPLETENESS} ${APP_JAR} 
 fi
 
