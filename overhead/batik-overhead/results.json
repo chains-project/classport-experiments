@@ -1,0 +1,113 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.BatikBenchmark.batik_no_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "resourceDir" : "src/main/resources"
+        },
+        "primaryMetric" : {
+            "score" : 36.796905606228755,
+            "scoreError" : 5.283403113783949,
+            "scoreConfidence" : [
+                31.513502492444808,
+                42.0803087200127
+            ],
+            "scorePercentiles" : {
+                "0.0" : 34.36449394520548,
+                "50.0" : 37.3568251977612,
+                "90.0" : 37.685173312030074,
+                "95.0" : 37.685173312030074,
+                "99.0" : 37.685173312030074,
+                "99.9" : 37.685173312030074,
+                "99.99" : 37.685173312030074,
+                "99.999" : 37.685173312030074,
+                "99.9999" : 37.685173312030074,
+                "100.0" : 37.685173312030074
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    37.172952296296295,
+                    37.3568251977612,
+                    37.685173312030074,
+                    37.40508327985074,
+                    34.36449394520548
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.BatikBenchmark.batik_with_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+            "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=batik_overhead,../output,dependency"
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "resourceDir" : "src/main/resources"
+        },
+        "primaryMetric" : {
+            "score" : 37.254909466444815,
+            "scoreError" : 4.911535354413962,
+            "scoreConfidence" : [
+                32.34337411203085,
+                42.16644482085878
+            ],
+            "scorePercentiles" : {
+                "0.0" : 35.810762471428575,
+                "50.0" : 37.855391245283016,
+                "90.0" : 38.47685751923077,
+                "95.0" : 38.47685751923077,
+                "99.0" : 38.47685751923077,
+                "99.9" : 38.47685751923077,
+                "99.99" : 38.47685751923077,
+                "99.999" : 38.47685751923077,
+                "99.9999" : 38.47685751923077,
+                "100.0" : 38.47685751923077
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    35.948436516129036,
+                    38.47685751923077,
+                    38.18309958015267,
+                    37.855391245283016,
+                    35.810762471428575
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

@@ -1,0 +1,107 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.CertRipperBenchmark.ripper_no_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 21.273522555239076,
+            "scoreError" : 1.6083939897201076,
+            "scoreConfidence" : [
+                19.66512856551897,
+                22.881916544959182
+            ],
+            "scorePercentiles" : {
+                "0.0" : 20.870871635416666,
+                "50.0" : 21.090622911578947,
+                "90.0" : 21.72902627548807,
+                "95.0" : 21.72902627548807,
+                "99.0" : 21.72902627548807,
+                "99.9" : 21.72902627548807,
+                "99.99" : 21.72902627548807,
+                "99.999" : 21.72902627548807,
+                "99.9999" : 21.72902627548807,
+                "100.0" : 21.72902627548807
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    21.090622911578947,
+                    20.960157255230126,
+                    20.870871635416666,
+                    21.716934698481563,
+                    21.72902627548807
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "com.example.CertRipperBenchmark.ripper_with_agent",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/aman/.sdkman/candidates/java/17.0.10-tem/bin/java",
+        "jvmArgs" : [
+            "-javaagent:../../../classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=cert_ripper_overhead,../output,dependency"
+        ],
+        "jdkVersion" : "17.0.10",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "17.0.10+7",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 22.182889176607627,
+            "scoreError" : 4.356819309092827,
+            "scoreConfidence" : [
+                17.8260698675148,
+                26.539708485700455
+            ],
+            "scorePercentiles" : {
+                "0.0" : 20.69695748553719,
+                "50.0" : 22.099645986754968,
+                "90.0" : 23.882535957040574,
+                "95.0" : 23.882535957040574,
+                "99.0" : 23.882535957040574,
+                "99.9" : 23.882535957040574,
+                "99.99" : 23.882535957040574,
+                "99.999" : 23.882535957040574,
+                "99.9999" : 23.882535957040574,
+                "100.0" : 23.882535957040574
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    20.69695748553719,
+                    22.052450792951543,
+                    23.882535957040574,
+                    22.18285566075388,
+                    22.099645986754968
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

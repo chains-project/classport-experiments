@@ -55,4 +55,4 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 # Run the command
-java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR" -jar "$APP_JAR" "$RES_DIR"
+java -javaagent:"$CLASS_PORT_AGENT"="$PROJECT_NAME","$OUTPUT_DIR",dependency -jar "$APP_JAR" "$RES_DIR"
