@@ -56,7 +56,7 @@ mvn clean
 
 # Run the classport-maven-plugin to embed metadata
 echo "Running classport-maven-plugin to embed metadata..."
-mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
+mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
 # Merge the classport-files (if applicable)
 if [[ -f "../scripts/post_process_local_repo.sh" ]]; then

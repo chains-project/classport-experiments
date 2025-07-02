@@ -50,7 +50,7 @@ mvn clean test | tee test-before.log
 mvn clean
 
 echo "Running Classport plugin..."
-mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
+mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
 if [ "$PROJECT_NAME" = "pdfbox" ]; then
     # Merge the classport-files

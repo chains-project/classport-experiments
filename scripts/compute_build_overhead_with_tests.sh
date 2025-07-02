@@ -71,7 +71,7 @@ echo "Measuring plugin execution time..."
 if [ "$PROJECT_NAME" = "pdfbox" ]; then
   PLUGIN_TIME=$( \
     { time sh -c ' \
-        mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed && \
+        mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed && \
         cd ../scripts && \
         ./post_process_local_repo.sh pdfbox && \
         (cd "$PROJECT_DIR" || { echo "Project directory not found: $PROJECT_DIR"; exit 1; }) && \
@@ -81,7 +81,7 @@ if [ "$PROJECT_NAME" = "pdfbox" ]; then
 else
   PLUGIN_TIME=$( \
   { time sh -c ' \
-      mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed && \
+      mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed && \
       mvn package -Dmaven.repo.local=classport-files \
   '; } 2>&1 | grep real | awk '{print $2}' \
 )

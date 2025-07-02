@@ -65,7 +65,7 @@ BASELINE_TIME=$( { time mvn compile; } 2>&1 | grep real | awk '{print $2}' )
 mvn clean 
 # Measure plugin execution time
 echo "Measuring plugin execution time..."
-PLUGIN_TIME=$( { time mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed; } 2>&1 | grep real | awk '{print $2}' )
+PLUGIN_TIME=$( { time mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed; } 2>&1 | grep real | awk '{print $2}' )
 
 # Convert times to seconds
 BASELINE_SECONDS=$(echo $BASELINE_TIME | awk -Fm '{print $1 * 60 + $2}')

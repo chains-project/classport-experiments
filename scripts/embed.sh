@@ -112,7 +112,7 @@ mvn clean
 
 # Run the embedding process
 echo "Running classport-maven-plugin to embed metadata..."
-mvn compile io.github.chains-project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
+mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
 # Package the project
 echo "Packaging the project..."
