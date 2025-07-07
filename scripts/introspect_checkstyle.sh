@@ -16,7 +16,7 @@ if [[ ! -f "$CLASS_PORT_AGENT" ]]; then
 fi
 
 if [[ ! -f "$CHECKSTYLE_APP" ]]; then
-  echo "Error: CHECKSTYLE_APP not found at $CHECKSTYLE_APP"
+  echo "Error: CHECKSTYLE_APP not found at $CHECKSTYLE_APP, embed the project first."
   exit 1
 fi
 # Create the output directory if it doesn't exist

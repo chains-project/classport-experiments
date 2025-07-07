@@ -47,7 +47,7 @@ case $PROJECT_NAME in
 esac
 
 if [[ ! -f "$APP_JAR" ]]; then
-  echo "Error: APP_JAR not found at $APP_JAR"
+  echo "Error: APP_JAR not found at $APP_JAR, embed the project first."
   exit 1
 fi
 

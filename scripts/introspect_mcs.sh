@@ -16,7 +16,7 @@ if [[ ! -f "$CLASS_PORT_AGENT" ]]; then
 fi
 
 if [[ ! -f "$MCS_APP" ]]; then
-  echo "Error: RIPPER_APP not found at $MCS_APP"
+  echo "Error: MCS_APP not found at $MCS_APP, embed the project first."
   exit 1
 fi
 # Create the output directory if it doesn't exist

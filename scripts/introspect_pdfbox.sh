@@ -22,7 +22,7 @@ if [[ ! -f "$CLASS_PORT_AGENT" ]]; then
 fi
 
 if [[ ! -f "$PDFBOX_APP" ]]; then
-  echo "Error: PDFBOX_APP not found at $PDFBOX_APP"
+  echo "Error: PDFBOX_APP not found at $PDFBOX_APP, embed the project first."
   exit 1
 fi
 

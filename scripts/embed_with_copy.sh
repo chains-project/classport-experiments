@@ -5,7 +5,7 @@
 
 # Check if the required arguments are provided
 if [[ $# -ne 3 ]]; then
-    echo "Usage: $0 <project_directory> <program> <executable-module"   
+    echo "Usage: $0 <project_directory> <program> <executable-module. Ex. ./embed_with_copy.sh pdfbox-3.0.4 pdfbox app"   
     exit 1
 fi
 

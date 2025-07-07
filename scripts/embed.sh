@@ -6,7 +6,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 1 ]]; then
     echo "Usage: $0 <project_name>"
-    echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle, zxing"
+    echo "Supported projects: mcs, ripper, batik, checkstyle, and zxing."
     exit 1
 fi
 
