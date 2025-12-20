@@ -29,7 +29,7 @@ mvn clean
 
 # Measure size of the jar without embedding
 echo "Measuring size of the JAR without embedding..."
-mvn package 
+mvn package -DskipTests
 case $PROGRAM in
   pdfbox)
     APP_JAR="target/pdfbox-app-3.0.4.jar"
@@ -47,7 +47,7 @@ else
     STAT_CMD=(stat -c%s)
 fi
 
-BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
+BEFORE_SIZE=$("${STAT_CMD[@]}" "$EXECUTABLE_MODULE/$APP_JAR")
 echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
 
 # Clean the project
@@ -124,7 +124,7 @@ for module in $(find . -name "target" -type d | grep "/target$" | sed 's|/target
 done
 
 cd $EXECUTABLE_MODULE
-mvn package -Dmaven.repo.local=../all-classport-files -DskipTests 
+mvn package -Dmaven.repo.local=../all-classport-files -DskipTests -Dmaven.test.skip=true
 
 # Measure size of the jar after embedding
 if [[ "$OSTYPE" == "darwin"* ]]; then
