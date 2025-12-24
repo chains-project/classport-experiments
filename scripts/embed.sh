@@ -39,6 +39,9 @@ case $PROJECT_NAME in
     zxing)
         PROJECT_DIR="../zxing-wrapper"
         ;;
+    pdfbox)
+        PROJECT_DIR="../pdfbox-3.0.4"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
         echo "Supported projects: jacop, mcs, batik, ripper, h2, checkstyle, zxing"
@@ -92,6 +95,9 @@ case $PROJECT_NAME in
     zxing)
         APP_JAR="target/zxing-workload-1.0-jar-with-dependencies.jar"
         ;;
+    pdfbox)
+        APP_JAR="app/target/pdfbox-app-3.0.4.jar"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
         echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper, zxing"
@@ -116,7 +122,7 @@ mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
 
 # Package the project
 echo "Packaging the project..."
-mvn "${EXTRA_MVN_ARGS[@]}" package -Dmaven.repo.local=classport-files -DskipTests
+mvn "${EXTRA_MVN_ARGS[@]}" package -Dmaven.repo.local=classport-files -DskipTests -Dmaven.test.skip=true
 
 echo "Embedding and packaging completed for project: $PROJECT_NAME"
 
