@@ -13,6 +13,8 @@ fi
 # Input argument
 PROJECT_NAME=$1
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Define project-specific configurations
 case $PROJECT_NAME in
     jacop)
@@ -49,6 +51,16 @@ case $PROJECT_NAME in
         ;;
 esac
 
+case $PROJECT_NAME in
+    pdfbox)
+        POM_FILE="app/pom.xml"
+        ;;
+    *)
+        POM_FILE="pom.xml"
+        ;;
+esac
+
+
 # Define extra mvn args conditionally
 EXTRA_MVN_ARGS=()
 if [[ "$PROJECT_NAME" == "checkstyle" ]]; then
@@ -63,13 +75,9 @@ echo "Navigating to project directory: $PROJECT_DIR"
 cd "$PROJECT_DIR" || { echo "Project directory not found: $PROJECT_DIR"; exit 1; }
 
 
-# Clean the project
-echo "Cleaning the project..."
-mvn clean
-
 # Measure size of the jar without embedding
 echo "Measuring size of the JAR without embedding..."
-mvn "${EXTRA_MVN_ARGS[@]}" package -DskipTests
+mvn "${EXTRA_MVN_ARGS[@]}" clean package -DskipTests
 case $PROJECT_NAME in
     jacop)
         APP_JAR="target/jacop-4.10.0.jar"
@@ -112,19 +120,19 @@ fi
 
 BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
-# Clean the project again
-echo "Cleaning the project again..."
-mvn clean
 
-# Run the embedding process
-echo "Running classport-maven-plugin to embed metadata..."
-mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed
+cp $PROJECT_DIR/$POM_FILE $PROJECT_DIR/$POM_FILE.bak
+# Add the classport-maven-plugin to pom.xml
+echo "Adding classport-maven-plugin to pom.xml..."
+"$SCRIPT_DIR/add_classport_plugin.sh" $PROJECT_DIR/$POM_FILE
 
-# Package the project
-echo "Packaging the project..."
-mvn "${EXTRA_MVN_ARGS[@]}" package -Dmaven.repo.local=classport-files -DskipTests -Dmaven.test.skip=true
+# Run the embedding process with clean package
+echo "Running classport-maven-plugin to embed metadata and package..."
+mvn "${EXTRA_MVN_ARGS[@]}" clean package -DskipTests
 
 echo "Embedding and packaging completed for project: $PROJECT_NAME"
+
+mv $PROJECT_DIR/$POM_FILE.bak $PROJECT_DIR/$POM_FILE
 
 # Measure size of the JAR after embedding
 echo "Measuring size of the JAR after embedding..."

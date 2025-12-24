@@ -54,18 +54,31 @@ case $PROGRAM in
     ;;
 esac
 
+case $PROGRAM in
+  pdfbox)
+    POM_FILE="app/pom.xml"
+    ;;
+  *)
+    POM_FILE="pom.xml"
+    ;;
+esac
+
 cd "$PROJECT_DIR" || exit 1
-# clean up any previous builds
-mvn clean 
 # Measure baseline build time
 echo "Measuring baseline build time..."
-BASELINE_TIME=$( { time mvn compile; } 2>&1 | grep real | awk '{print $2}' )
+BASELINE_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
 
-# Clean up any previous builds
-mvn clean 
+cp $PROJECT_DIR/$POM_FILE $PROJECT_DIR/$POM_FILE.bak
+
+echo "Adding classport-maven-plugin to pom.xml..."
+"$SCRIPT_DIR/add_classport_plugin.sh" $PROJECT_DIR/$POM_FILE
+
 # Measure plugin execution time
 echo "Measuring plugin execution time..."
-PLUGIN_TIME=$( { time mvn compile io.github.project:classport-maven-plugin:0.1.0-SNAPSHOT:embed; } 2>&1 | grep real | awk '{print $2}' )
+PLUGIN_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
+
+mv $PROJECT_DIR/$POM_FILE.bak $PROJECT_DIR/$POM_FILE
+
 
 # Convert times to seconds
 BASELINE_SECONDS=$(echo $BASELINE_TIME | awk -Fm '{print $1 * 60 + $2}')
