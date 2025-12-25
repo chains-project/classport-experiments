@@ -121,18 +121,12 @@ fi
 BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 echo "Size of the JAR $(realpath $APP_JAR) before embedding: $BEFORE_SIZE bytes"
 
-cp $PROJECT_DIR/$POM_FILE $PROJECT_DIR/$POM_FILE.bak
-# Add the classport-maven-plugin to pom.xml
-echo "Adding classport-maven-plugin to pom.xml..."
-"$SCRIPT_DIR/add_classport_plugin.sh" $PROJECT_DIR/$POM_FILE
 
 # Run the embedding process with clean package
 echo "Running classport-maven-plugin to embed metadata and package..."
-mvn "${EXTRA_MVN_ARGS[@]}" clean package -DskipTests
+mvn "${EXTRA_MVN_ARGS[@]}" clean package -DskipTests -Pembed
 
 echo "Embedding and packaging completed for project: $PROJECT_NAME"
-
-mv $PROJECT_DIR/$POM_FILE.bak $PROJECT_DIR/$POM_FILE
 
 # Measure size of the JAR after embedding
 echo "Measuring size of the JAR after embedding..."

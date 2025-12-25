@@ -68,16 +68,9 @@ cd "$PROJECT_DIR" || exit 1
 echo "Measuring baseline build time..."
 BASELINE_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
 
-cp $PROJECT_DIR/$POM_FILE $PROJECT_DIR/$POM_FILE.bak
-
-echo "Adding classport-maven-plugin to pom.xml..."
-"$SCRIPT_DIR/add_classport_plugin.sh" $PROJECT_DIR/$POM_FILE
-
 # Measure plugin execution time
 echo "Measuring plugin execution time..."
-PLUGIN_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
-
-mv $PROJECT_DIR/$POM_FILE.bak $PROJECT_DIR/$POM_FILE
+PLUGIN_TIME=$( { time mvn clean package -DskipTests -Pembed; } 2>&1 | grep real | awk '{print $2}' )
 
 
 # Convert times to seconds
