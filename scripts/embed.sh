@@ -6,7 +6,7 @@
 # Check if the required argument is provided
 if [[ $# -ne 1 ]]; then
     echo "Usage: $0 <project_name>"
-    echo "Supported projects: mcs, ripper, batik, checkstyle, and zxing."
+    echo "Supported projects: mcs, ripper, batik, checkstyle, zxing, and pdfbox."
     exit 1
 fi
 
@@ -119,7 +119,7 @@ else
 fi
 
 BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
-echo "Size of the JAR before embedding: $BEFORE_SIZE bytes"
+echo "Size of the JAR $(realpath $APP_JAR) before embedding: $BEFORE_SIZE bytes"
 
 cp $PROJECT_DIR/$POM_FILE $PROJECT_DIR/$POM_FILE.bak
 # Add the classport-maven-plugin to pom.xml
@@ -149,7 +149,7 @@ fi
 
 AFTER_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 
-echo "Size of the JAR after embedding: $AFTER_SIZE bytes"
+echo "Size of the JAR $(realpath $APP_JAR) after embedding: $AFTER_SIZE bytes"
 
 # Ensure BEFORE_SIZE is set
 if [[ -z "$BEFORE_SIZE" || "$BEFORE_SIZE" -eq 0 ]]; then

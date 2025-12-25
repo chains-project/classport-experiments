@@ -67,13 +67,7 @@ cd classport-experiments/scripts
 ./embed.sh <name-of-the-project>
 ```
 
-where *name-of-the-project* can be: mcs, ripper, batik, checkstyle, or zxing.
-
-For embedding pdfbox do this:
-```bash
-cd classport-experiments/scripts
-./embed_with_copy.sh pdfbox-3.0.4 pdfbox app
-```
+where *name-of-the-project* can be: mcs, ripper, batik, checkstyle, zxing, or pdfbox.
 
 ##### Class completeness
 
@@ -108,13 +102,7 @@ cd classport-experiments/scripts
 ./embed.sh <name-of-the-project>
 ```
 
-where *name-of-the-project* can be: mcs, ripper, batik, checkstyle, or zxing.
-
-For embedding pdfbox do this:
-```bash
-cd classport-experiments/scripts
-./embed_with_copy.sh pdfbox-3.0.4 pdfbox app
-```
+where *name-of-the-project* can be: pdfbox, mcs, ripper, batik, checkstyle, or zxing.
 
 For disk overhead information check the output in the console.
 
