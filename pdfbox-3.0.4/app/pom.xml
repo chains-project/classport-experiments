@@ -90,4 +90,27 @@
     </plugins>
   </build>
 
+  <profiles>
+      <profile>
+        <id>embed</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>io.github.project</groupId>
+                    <artifactId>classport-maven-plugin</artifactId>
+                    <version>0.1.0-SNAPSHOT</version>
+                    <executions>
+                        <execution>
+                            <id>classport-embed</id>
+                            <goals>
+                                <goal>embed</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+  </profiles>
+  
 </project>
