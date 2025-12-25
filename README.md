@@ -106,6 +106,99 @@ where *name-of-the-project* can be: pdfbox, mcs, ripper, batik, checkstyle, or z
 
 For disk overhead information check the output in the console.
 
+#### Results
+
+##### PDFBox
+```
+Measuring baseline build time...
+Measuring plugin execution time...
+Baseline build time: 0m19,526s
+Plugin execution time: 0m20,314s
+Overhead introduced by the plugin: .788s
+Percentage overhead: 4.03564400%
+
+Size of JAR before embedding: 15000608 bytes
+Size of JAR after embedding: 15302584 bytes
+Size overhead: 301976 bytes
+Percentage overhead: 2.01309100%
+```
+
+##### Certificate-ripper
+```
+Measuring baseline build time...
+Measuring plugin execution time...
+Baseline build time: 0m3,279s
+Plugin execution time: 0m3,352s
+Overhead introduced by the plugin: .073s
+Percentage overhead: 2.22628800%
+
+Size of JAR before embedding: 818736 bytes
+Size of JAR after embedding: 825260 bytes
+Size overhead: 6524 bytes
+Percentage overhead: .79683800%
+```
+##### MCS
+```
+Measuring baseline build time...
+Measuring plugin execution time...
+Baseline build time: 0m3,875s
+Plugin execution time: 0m4,091s
+Overhead introduced by the plugin: .216s
+Percentage overhead: 5.57419300%
+
+Size of JAR before embedding: 1307104 bytes
+Size of JAR after embedding: 1320455 bytes
+Size overhead: 13351 bytes
+Percentage overhead: 1.02141800%
+```
+
+##### Batik
+```
+Measuring baseline build time...
+Measuring plugin execution time...
+Baseline build time: 0m2,376s
+Plugin execution time: 0m2,894s
+Overhead introduced by the plugin: .518s
+Percentage overhead: 21.80134600%
+
+Size of JAR before embedding: 7366136 bytes
+Size of JAR after embedding: 7366356 bytes
+Size overhead: 220 bytes
+Percentage overhead: .00298600%
+```
+
+##### Checkstyle
+```
+Measuring baseline build time...
+Measuring plugin execution time...
+Baseline build time: 0m18,377s
+Plugin execution time: 0m21,297s
+Overhead introduced by the plugin: 2.920s
+Percentage overhead: 15.88942700%
+
+Size of JAR before embedding: 22601798 bytes
+Size of JAR after embedding: 22970710 bytes
+Size overhead: 368912 bytes
+Percentage overhead: 1.63222400%
+```
+
+
+
+##### ZXing
+```
+Measuring baseline build time...
+Measuring plugin execution time...
+Baseline build time: 0m2,403s
+Plugin execution time: 0m2,499s
+Overhead introduced by the plugin: .096s
+Percentage overhead: 3.99500600%
+
+Size of JAR before embedding: 1508048 bytes
+Size of JAR after embedding: 1508256 bytes
+Size overhead: 208 bytes
+Percentage overhead: .01379200%
+```
+
 #### RQ2 Experiments
 This experiments must be run on the embedded projects, so firts embed them.
 
