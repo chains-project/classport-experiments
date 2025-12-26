@@ -109,6 +109,8 @@ declare -a PLUGIN_TIMES
 declare -a BASELINE_SECONDS_ARRAY
 declare -a PLUGIN_SECONDS_ARRAY
 declare -a PERCENTAGE_OVERHEADS
+declare -a BASELINE_EXIT_CODES
+declare -a PLUGIN_EXIT_CODES
 
 # Run time measurements 10 times
 NUM_RUNS=10
@@ -117,17 +119,23 @@ echo "Running $NUM_RUNS iterations to measure build times..."
 for i in $(seq 1 $NUM_RUNS); do
     echo "Iteration $i/$NUM_RUNS..."
     
-    # Measure baseline build time
-    BASELINE_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
+    # Measure baseline build time and capture exit code
+    BASELINE_OUTPUT=$( { time mvn clean package -DskipTests; } 2>&1 )
+    BASELINE_EXIT_CODE=$?
+    BASELINE_TIME=$(echo "$BASELINE_OUTPUT" | grep real | awk '{print $2}')
     BASELINE_TIMES+=("$BASELINE_TIME")
+    BASELINE_EXIT_CODES+=("$BASELINE_EXIT_CODE")
     
     # Convert to seconds
     BASELINE_SECONDS=$(echo $BASELINE_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
     BASELINE_SECONDS_ARRAY+=("$BASELINE_SECONDS")
     
-    # Measure plugin execution time
-    PLUGIN_TIME=$( { time mvn clean package -DskipTests -Pembed; } 2>&1 | grep real | awk '{print $2}' )
+    # Measure plugin execution time and capture exit code
+    PLUGIN_OUTPUT=$( { time mvn clean package -DskipTests -Pembed; } 2>&1 )
+    PLUGIN_EXIT_CODE=$?
+    PLUGIN_TIME=$(echo "$PLUGIN_OUTPUT" | grep real | awk '{print $2}')
     PLUGIN_TIMES+=("$PLUGIN_TIME")
+    PLUGIN_EXIT_CODES+=("$PLUGIN_EXIT_CODE")
     
     # Convert to seconds
     PLUGIN_SECONDS=$(echo $PLUGIN_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
@@ -138,7 +146,7 @@ for i in $(seq 1 $NUM_RUNS); do
     PERCENTAGE_OVERHEAD=$(echo "scale=8; ($TIME_OVERHEAD / $BASELINE_SECONDS) * 100" | bc)
     PERCENTAGE_OVERHEADS+=("$PERCENTAGE_OVERHEAD")
     
-    echo "  Run $i: Baseline=${BASELINE_TIME}, Plugin=${PLUGIN_TIME}, Overhead=${PERCENTAGE_OVERHEAD}%"
+    echo "  Run $i: Baseline=${BASELINE_TIME} (exit=$BASELINE_EXIT_CODE), Plugin=${PLUGIN_TIME} (exit=$PLUGIN_EXIT_CODE), Overhead=${PERCENTAGE_OVERHEAD}%"
 done
 
 # Measure size after embedding (only once, after last run)
