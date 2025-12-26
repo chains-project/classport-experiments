@@ -88,56 +88,111 @@ case $PROGRAM in
 esac
 
 cd "$PROJECT_DIR" || exit 1
-# Measure baseline build time
-echo "Measuring baseline build time..."
-BASELINE_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
 
+# Measure size only once (before embedding)
 if [[ "$OSTYPE" == "darwin"* ]]; then
     STAT_CMD=(stat -f%z)
 else
     STAT_CMD=(stat -c%s)
 fi
 
+# First, build once to ensure JAR exists for size measurement
+echo "Building baseline to measure initial JAR size..."
+mvn clean package -DskipTests > /dev/null 2>&1
+
 BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 echo "Size of the JAR $(realpath $APP_JAR) before embedding: $BEFORE_SIZE bytes"
 
-# Measure plugin execution time
-echo "Measuring plugin execution time..."
-PLUGIN_TIME=$( { time mvn clean package -DskipTests -Pembed; } 2>&1 | grep real | awk '{print $2}' )
+# Arrays to store times from 10 runs
+declare -a BASELINE_TIMES
+declare -a PLUGIN_TIMES
+declare -a BASELINE_SECONDS_ARRAY
+declare -a PLUGIN_SECONDS_ARRAY
+declare -a PERCENTAGE_OVERHEADS
 
+# Run time measurements 10 times
+NUM_RUNS=10
+echo "Running $NUM_RUNS iterations to measure build times..."
+
+for i in $(seq 1 $NUM_RUNS); do
+    echo "Iteration $i/$NUM_RUNS..."
+    
+    # Measure baseline build time
+    BASELINE_TIME=$( { time mvn clean package -DskipTests; } 2>&1 | grep real | awk '{print $2}' )
+    BASELINE_TIMES+=("$BASELINE_TIME")
+    
+    # Convert to seconds
+    BASELINE_SECONDS=$(echo $BASELINE_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
+    BASELINE_SECONDS_ARRAY+=("$BASELINE_SECONDS")
+    
+    # Measure plugin execution time
+    PLUGIN_TIME=$( { time mvn clean package -DskipTests -Pembed; } 2>&1 | grep real | awk '{print $2}' )
+    PLUGIN_TIMES+=("$PLUGIN_TIME")
+    
+    # Convert to seconds
+    PLUGIN_SECONDS=$(echo $PLUGIN_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
+    PLUGIN_SECONDS_ARRAY+=("$PLUGIN_SECONDS")
+    
+    # Compute percentage overhead for this run
+    TIME_OVERHEAD=$(echo "$PLUGIN_SECONDS - $BASELINE_SECONDS" | bc)
+    PERCENTAGE_OVERHEAD=$(echo "scale=8; ($TIME_OVERHEAD / $BASELINE_SECONDS) * 100" | bc)
+    PERCENTAGE_OVERHEADS+=("$PERCENTAGE_OVERHEAD")
+    
+    echo "  Run $i: Baseline=${BASELINE_TIME}, Plugin=${PLUGIN_TIME}, Overhead=${PERCENTAGE_OVERHEAD}%"
+done
+
+# Measure size after embedding (only once, after last run)
 echo "Measuring size of the JAR after embedding..."
 if [[ ! -f "$APP_JAR" ]]; then
     echo "Error: JAR file not found at $APP_JAR"
     exit 1
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    STAT_CMD=(stat -f%z)
-else
-    STAT_CMD=(stat -c%s)
-fi
-
 AFTER_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 
+# Calculate average times and overheads
+TOTAL_BASELINE_SECONDS=0
+TOTAL_PLUGIN_SECONDS=0
+TOTAL_PERCENTAGE_OVERHEAD=0
 
-# Convert times to seconds
-BASELINE_SECONDS=$(echo $BASELINE_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
-PLUGIN_SECONDS=$(echo $PLUGIN_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
+for i in $(seq 0 $((NUM_RUNS - 1))); do
+    TOTAL_BASELINE_SECONDS=$(echo "$TOTAL_BASELINE_SECONDS + ${BASELINE_SECONDS_ARRAY[$i]}" | bc)
+    TOTAL_PLUGIN_SECONDS=$(echo "$TOTAL_PLUGIN_SECONDS + ${PLUGIN_SECONDS_ARRAY[$i]}" | bc)
+    TOTAL_PERCENTAGE_OVERHEAD=$(echo "$TOTAL_PERCENTAGE_OVERHEAD + ${PERCENTAGE_OVERHEADS[$i]}" | bc)
+done
 
+AVG_BASELINE_SECONDS=$(echo "scale=8; $TOTAL_BASELINE_SECONDS / $NUM_RUNS" | bc)
+AVG_PLUGIN_SECONDS=$(echo "scale=8; $TOTAL_PLUGIN_SECONDS / $NUM_RUNS" | bc)
+AVG_PERCENTAGE_OVERHEAD=$(echo "scale=8; $TOTAL_PERCENTAGE_OVERHEAD / $NUM_RUNS" | bc)
 
-# Compute overhead
-TIME_OVERHEAD=$(echo "$PLUGIN_SECONDS - $BASELINE_SECONDS" | bc)
-PERCENTAGE_TIME_OVERHEAD=$(echo "scale=8; ($TIME_OVERHEAD / $BASELINE_SECONDS) * 100" | bc)
+AVG_TIME_OVERHEAD=$(echo "$AVG_PLUGIN_SECONDS - $AVG_BASELINE_SECONDS" | bc)
+
+# Calculate median percentage overhead
+# Sort the array and find the middle value(s)
+IFS=$'\n' SORTED_OVERHEADS=($(sort -n <<<"${PERCENTAGE_OVERHEADS[*]}"))
+unset IFS
+
+if [ $(($NUM_RUNS % 2)) -eq 0 ]; then
+    # Even number of runs: average of two middle values
+    MID1=$((NUM_RUNS / 2 - 1))
+    MID2=$((NUM_RUNS / 2))
+    MEDIAN_PERCENTAGE_OVERHEAD=$(echo "scale=8; (${SORTED_OVERHEADS[$MID1]} + ${SORTED_OVERHEADS[$MID2]}) / 2" | bc)
+else
+    # Odd number of runs: middle value
+    MID=$((NUM_RUNS / 2))
+    MEDIAN_PERCENTAGE_OVERHEAD=${SORTED_OVERHEADS[$MID]}
+fi
 
 SIZE_OVERHEAD=$((AFTER_SIZE - BEFORE_SIZE))
 PERCENTAGE_SIZE_OVERHEAD=$(echo "scale=8; ($SIZE_OVERHEAD / $BEFORE_SIZE) * 100" | bc)
 
-
 echo "-------------------------------"
-echo "Baseline build time: $BASELINE_TIME"
-echo "Plugin execution time: $PLUGIN_TIME"
-echo "Time overhead: ${TIME_OVERHEAD}s"
-echo "Percentage time overhead: ${PERCENTAGE_TIME_OVERHEAD}%"
+echo "Results across $NUM_RUNS runs:"
+echo "Average baseline build time: ${AVG_BASELINE_SECONDS}s"
+echo "Average plugin execution time: ${AVG_PLUGIN_SECONDS}s"
+echo "Average time overhead: ${AVG_TIME_OVERHEAD}s"
+echo "Average percentage time overhead: ${AVG_PERCENTAGE_OVERHEAD}%"
+echo "Median percentage time overhead: ${MEDIAN_PERCENTAGE_OVERHEAD}%"
 echo "-------------------------------"
 echo "Size of JAR before embedding: ${BEFORE_SIZE} bytes"
 echo "Size of JAR after embedding: ${AFTER_SIZE} bytes"
