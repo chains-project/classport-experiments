@@ -52,6 +52,7 @@ case $PROGRAM in
     ;;
 esac
 
+EXTRA_MAVEN_ARGS=()
 case $PROGRAM in
     jacop)
         APP_JAR="target/jacop-4.10.0.jar"
@@ -72,7 +73,8 @@ case $PROGRAM in
         APP_JAR="target/h2wrapper-1.0-SNAPSHOT.jar"
         ;;
     checkstyle)
-        APP_JAR="target/checkstyle-10.23.0.jar"
+        APP_JAR="target/checkstyle-10.23.0-all.jar"
+        EXTRA_MAVEN_ARGS+=("-Passembly")    
         ;;
     zxing)
         APP_JAR="target/zxing-workload-1.0-jar-with-dependencies.jar"
@@ -98,7 +100,7 @@ fi
 
 # First, build once to ensure JAR exists for size measurement
 echo "Building baseline to measure initial JAR size..."
-mvn clean package -DskipTests > /dev/null 2>&1
+mvn clean package -DskipTests "${EXTRA_MAVEN_ARGS[@]}" > /dev/null 2>&1
 
 BEFORE_SIZE=$("${STAT_CMD[@]}" "$APP_JAR")
 echo "Size of the JAR $(realpath $APP_JAR) before embedding: $BEFORE_SIZE bytes"
@@ -120,7 +122,7 @@ for i in $(seq 1 $NUM_RUNS); do
     echo "Iteration $i/$NUM_RUNS..."
     
     # Measure baseline build time and capture exit code
-    BASELINE_OUTPUT=$( { time mvn clean package -DskipTests; } 2>&1 )
+    BASELINE_OUTPUT=$( { time mvn clean package -DskipTests "${EXTRA_MAVEN_ARGS[@]}"; } 2>&1 )
     BASELINE_EXIT_CODE=$?
     BASELINE_TIME=$(echo "$BASELINE_OUTPUT" | grep real | awk '{print $2}')
     BASELINE_TIMES+=("$BASELINE_TIME")
@@ -131,7 +133,7 @@ for i in $(seq 1 $NUM_RUNS); do
     BASELINE_SECONDS_ARRAY+=("$BASELINE_SECONDS")
     
     # Measure plugin execution time and capture exit code
-    PLUGIN_OUTPUT=$( { time mvn clean package -DskipTests -Pembed; } 2>&1 )
+    PLUGIN_OUTPUT=$( { time mvn clean package -DskipTests -Pembed "${EXTRA_MAVEN_ARGS[@]}"; } 2>&1 )
     PLUGIN_EXIT_CODE=$?
     PLUGIN_TIME=$(echo "$PLUGIN_OUTPUT" | grep real | awk '{print $2}')
     PLUGIN_TIMES+=("$PLUGIN_TIME")
