@@ -77,7 +77,9 @@ if [[ "$2" == "--deps" ]]; then
     cd "$MODULE_DIR/../" || exit 1
     
     echo "Running correctness check..."
-    mvn dependency:list > mvn.txt
+    # include scope gives compile, provided, and system dependencies
+    # We exclude runtime and test dependencies
+    mvn dependency:list -DincludeScope=compile > mvn.txt
 
     # Extract dependencies, format them, and sort
     awk '/^\[INFO\]/ && $2 ~ /.*:.*:jar:.*/ { split($2, a, ":"); print a[1] ":" a[2] ":jar:" a[4] }' mvn.txt | sort > mvn_sorted.txt
