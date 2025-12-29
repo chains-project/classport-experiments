@@ -5276,5 +5276,20 @@
       </plugins>
     </build>
   </profile>
+  <profile>
+    <id>introspect</id>
+    <build>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.5.4</version>
+            <configuration>
+            <argLine>-javaagent:/home/aman/Desktop/master-thesis/classport/classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=introspect,./,dependency</argLine>
+            </configuration>
+        </plugin>
+        </plugins>
+    </build>
+  </profile>
 </profiles>
 </project>

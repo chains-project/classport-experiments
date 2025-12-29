@@ -318,6 +318,35 @@
             </plugins>
         </build>
     </profile>
+    <profile>
+      <id>introspect</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.5.4</version>
+            <configuration>
+              <argLine>-javaagent:/home/aman/Desktop/master-thesis/classport/classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=introspect,./,dependency</argLine>
+            </configuration>
+          </plugin>
+          <!-- We add embedding here because the tests are in different modules. To measure overhead of entire project, we need to embed the project. -->
+          <plugin>
+            <groupId>io.github.project</groupId>
+            <artifactId>classport-maven-plugin</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <executions>
+              <execution>
+                <id>classport-introspect</id>
+                <goals>
+                  <goal>embed</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 
     <!-- Developers listed by PMC Chair, PMC all alphabetical-->
