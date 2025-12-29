@@ -36,7 +36,7 @@ case $PROGRAM in
     APP_JAR="$SCRIPT_DIR/../certificate-ripper-2.4.1/target/crip.jar"
     ;;
   checkstyle)
-    APP_JAR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0.jar"
+    APP_JAR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0/target/checkstyle-10.23.0-all.jar"
     ;;
   jacop)
     APP_JAR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
