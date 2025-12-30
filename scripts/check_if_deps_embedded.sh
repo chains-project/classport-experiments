@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> [--deps] "
-  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graph, batik, h2, zxing"
+  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graphhopper, batik, h2"
   exit 1
 fi
 
@@ -47,8 +47,8 @@ case $PROGRAM in
   ttorrent)
     APP_JAR="$SCRIPT_DIR/../ttorrent-ttorrent-1.5/cli/target/ttorrent-cli-1.5-shaded.jar"
     ;;
-  graph)
-    APP_JAR="$SCRIPT_DIR/../graphhopper/graphhopper/web/target/graphhopper-web-9.1.jar"
+  graphhopper)
+    APP_JAR="$SCRIPT_DIR/../graphhopper-11.0/web/target/graphhopper-web-11.0-SNAPSHOT.jar"
     ;;
   commons)
     APP_JAR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
@@ -59,12 +59,9 @@ case $PROGRAM in
   h2)
     APP_JAR="$SCRIPT_DIR/../h2wrapper/target/h2wrapper-1.0-SNAPSHOT.jar"
     ;;
-  zxing)
-    APP_JAR="$SCRIPT_DIR/../zxing-wrapper/target/zxing-workload-1.0-jar-with-dependencies.jar"
-    ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
-    echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graph, batik, h2, zxing"
+    echo "Supported programs: pdfbox, certificate-ripper, checkstyle, jacop, mcs, ttorrent, graphhopper, batik, h2"
     exit 1
     ;;
 esac
