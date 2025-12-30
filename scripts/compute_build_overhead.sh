@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> "
-  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle, zxing"
+  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle, graphhopper"
   exit 1
 fi
 
@@ -29,9 +29,6 @@ case $PROGRAM in
   checkstyle)
     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0"
     ;;
-  zxing)
-    PROJECT_DIR="$SCRIPT_DIR/../zxing-wrapper"
-    ;;
 #   jacop)
 #     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
 #     ;;
@@ -39,15 +36,15 @@ case $PROGRAM in
 #   ttorrent)
 #     PROJECT_DIR="$SCRIPT_DIR/../ttorrent-ttorrent-1.5/cli/target/ttorrent-cli-1.5-shaded.jar"
 #     ;;
-#   graph)
-#     PROJECT_DIR="$SCRIPT_DIR/../graphhopper/graphhopper/web/target/graphhopper-web-9.1.jar"
-#     ;;
+  graphhopper)
+    PROJECT_DIR="$SCRIPT_DIR/../graphhopper-11.0"
+    ;;
 #   commons)
 #     PROJECT_DIR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
 #     ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
-    echo "Supported programs: pdfbox, checkstyle"
+    echo "Supported programs: pdfbox, checkstyle, graphhopper, mcs, ripper, batik"
     exit 1
     ;;
 esac
@@ -76,15 +73,15 @@ case $PROGRAM in
         APP_JAR="target/checkstyle-10.23.0-all.jar"
         EXTRA_MAVEN_ARGS+=("-Passembly")    
         ;;
-    zxing)
-        APP_JAR="target/zxing-workload-1.0-jar-with-dependencies.jar"
-        ;;
     pdfbox)
         APP_JAR="app/target/pdfbox-app-3.0.4.jar"
         ;;
+    graphhopper)
+        APP_JAR="web/target/graphhopper-web-11.0-SNAPSHOT.jar"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper, zxing"
+        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper, graphhopper"
         exit 1
         ;;  
 esac
