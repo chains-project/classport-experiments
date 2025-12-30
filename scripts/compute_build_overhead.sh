@@ -119,25 +119,49 @@ for i in $(seq 1 $NUM_RUNS); do
     echo "Iteration $i/$NUM_RUNS..."
     
     # Measure baseline build time and capture exit code
-    BASELINE_OUTPUT=$( { time mvn clean package -DskipTests "${EXTRA_MAVEN_ARGS[@]}"; } 2>&1 )
+    BASELINE_OUTPUT=$(mvn clean package -DskipTests "${EXTRA_MAVEN_ARGS[@]}" 2>&1)
     BASELINE_EXIT_CODE=$?
-    BASELINE_TIME=$(echo "$BASELINE_OUTPUT" | grep real | awk '{print $2}')
+    BASELINE_TIME=$(echo "$BASELINE_OUTPUT" | grep "\[INFO\] Total time:" | sed 's/.*\[INFO\] Total time: *//' | sed 's/ *$//')
     BASELINE_TIMES+=("$BASELINE_TIME")
     BASELINE_EXIT_CODES+=("$BASELINE_EXIT_CODE")
     
-    # Convert to seconds
-    BASELINE_SECONDS=$(echo $BASELINE_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
+    # Convert Maven time format to seconds (handles "MM:SS min" or "XX.XXX s" formats)
+    BASELINE_SECONDS=$(echo "$BASELINE_TIME" | awk '{
+        if ($0 ~ /min$/) {
+            # Format: "MM:SS min"
+            split($1, parts, ":");
+            minutes = parts[1];
+            seconds = parts[2];
+            printf "%.3f", minutes * 60 + seconds;
+        } else if ($0 ~ /s$/) {
+            # Format: "XX.XXX s"
+            gsub(/ s$/, "", $0);
+            printf "%.3f", $0;
+        }
+    }')
     BASELINE_SECONDS_ARRAY+=("$BASELINE_SECONDS")
     
     # Measure plugin execution time and capture exit code
-    PLUGIN_OUTPUT=$( { time mvn clean package -DskipTests -Pembed "${EXTRA_MAVEN_ARGS[@]}"; } 2>&1 )
+    PLUGIN_OUTPUT=$(mvn clean package -DskipTests -Pembed "${EXTRA_MAVEN_ARGS[@]}" 2>&1)
     PLUGIN_EXIT_CODE=$?
-    PLUGIN_TIME=$(echo "$PLUGIN_OUTPUT" | grep real | awk '{print $2}')
+    PLUGIN_TIME=$(echo "$PLUGIN_OUTPUT" | grep "\[INFO\] Total time:" | sed 's/.*\[INFO\] Total time: *//' | sed 's/ *$//')
     PLUGIN_TIMES+=("$PLUGIN_TIME")
     PLUGIN_EXIT_CODES+=("$PLUGIN_EXIT_CODE")
     
-    # Convert to seconds
-    PLUGIN_SECONDS=$(echo $PLUGIN_TIME | LC_NUMERIC=C awk -F'[ms]' '{sub(/,/,".",$2); printf "%.3f", $1 * 60 + $2}')
+    # Convert Maven time format to seconds (handles "MM:SS min" or "XX.XXX s" formats)
+    PLUGIN_SECONDS=$(echo "$PLUGIN_TIME" | awk '{
+        if ($0 ~ /min$/) {
+            # Format: "MM:SS min"
+            split($1, parts, ":");
+            minutes = parts[1];
+            seconds = parts[2];
+            printf "%.3f", minutes * 60 + seconds;
+        } else if ($0 ~ /s$/) {
+            # Format: "XX.XXX s"
+            gsub(/ s$/, "", $0);
+            printf "%.3f", $0;
+        }
+    }')
     PLUGIN_SECONDS_ARRAY+=("$PLUGIN_SECONDS")
     
     # Compute percentage overhead for this run
