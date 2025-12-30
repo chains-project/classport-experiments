@@ -24,7 +24,7 @@ case $PROGRAM in
     PROJECT_DIR="$SCRIPT_DIR/../mcs-0.7.3"
     ;;
   batik)
-    PROJECT_DIR="$SCRIPT_DIR/../batikwrapper"
+    PROJECT_DIR="$SCRIPT_DIR/../batik-1.19"
     ;;
   checkstyle)
     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0"
@@ -64,7 +64,7 @@ case $PROGRAM in
         APP_JAR="target/crip.jar"
         ;;
     batik)
-        APP_JAR="target/batikwrapper-1.0-SNAPSHOT.jar"
+        APP_JAR="batik-all/target/batik-all-1.19.jar"
         ;;
     h2)
         APP_JAR="target/h2wrapper-1.0-SNAPSHOT.jar"

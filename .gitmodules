@@ -1,3 +1,6 @@
 [submodule "graphhopper-11.0"]
 	path = graphhopper-11.0
 	url = https://github.com/algomaster99/graphhopper.git
+[submodule "batik-1.19"]
+	path = batik-1.19
+	url = https://github.com/algomaster99/xmlgraphics-batik.git
