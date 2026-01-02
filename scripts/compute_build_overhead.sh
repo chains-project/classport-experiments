@@ -30,7 +30,7 @@ case $PROGRAM in
     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0"
     ;;
   biojava)
-    PROJECT_DIR="$SCRIPT_DIR/../biojava-7.2.4/biojava-aa-prop"
+    PROJECT_DIR="$SCRIPT_DIR/../biojava-7.2.4"
     ;;
 #   jacop)
 #     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
@@ -83,7 +83,7 @@ case $PROGRAM in
         APP_JAR="web/target/graphhopper-web-11.0-SNAPSHOT.jar"
         ;;
     biojava)
-        APP_JAR="target/AAProperties-jar-with-dependencies.jar"
+        APP_JAR="biojava-aa-prop/target/AAProperties-jar-with-dependencies.jar"
         ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
