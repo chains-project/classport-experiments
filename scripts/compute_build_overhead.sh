@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> "
-  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle, graphhopper"
+  echo "Supported programs: pdfbox, mcs, ripper, batik, checkstyle, graphhopper, biojava"
   exit 1
 fi
 
@@ -29,6 +29,9 @@ case $PROGRAM in
   checkstyle)
     PROJECT_DIR="$SCRIPT_DIR/../checkstyle-checkstyle-10.23.0"
     ;;
+  biojava)
+    PROJECT_DIR="$SCRIPT_DIR/../biojava-7.2.4/biojava-aa-prop"
+    ;;
 #   jacop)
 #     PROJECT_DIR="$SCRIPT_DIR/../jacop-4.10.0/target/jacop-4.10.0.jar"
 #     ;;
@@ -44,7 +47,7 @@ case $PROGRAM in
 #     ;;
   *)
     echo "Error: Unsupported program '$PROGRAM'"
-    echo "Supported programs: pdfbox, checkstyle, graphhopper, mcs, ripper, batik"
+    echo "Supported programs: pdfbox, checkstyle, graphhopper, mcs, ripper, batik, biojava"
     exit 1
     ;;
 esac
@@ -79,9 +82,12 @@ case $PROGRAM in
     graphhopper)
         APP_JAR="web/target/graphhopper-web-11.0-SNAPSHOT.jar"
         ;;
+    biojava)
+        APP_JAR="target/AAProperties-jar-with-dependencies.jar"
+        ;;
     *)
         echo "Error: Unsupported project '$PROJECT_NAME'"
-        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper, graphhopper"
+        echo "Supported projects: jacop, mcs, ttorrent, h2, checkstyle, batik, ripper, graphhopper, biojava"
         exit 1
         ;;  
 esac

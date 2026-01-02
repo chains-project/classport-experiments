@@ -4,3 +4,6 @@
 [submodule "batik-1.19"]
 	path = batik-1.19
 	url = https://github.com/algomaster99/xmlgraphics-batik.git
+[submodule "biojava-7.2.4"]
+	path = biojava-7.2.4
+	url = https://github.com/algomaster99/biojava.git

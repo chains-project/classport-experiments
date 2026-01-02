@@ -4,7 +4,7 @@
 # Ensure required argument is provided
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <program_name> [--deps] "
-  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graphhopper, batik, h2"
+  echo "Supported programs: pdfbox, ripper, checkstyle, jacop, mcs, ttorrent, graphhopper, biojava, h2"
   exit 1
 fi
 
@@ -53,8 +53,8 @@ case $PROGRAM in
   commons)
     APP_JAR="$SCRIPT_DIR/../commons-validator-1.9.0-src/target/commons-validator-1.9.0.jar"
     ;;
-  batik)
-    APP_JAR="$SCRIPT_DIR/../batik-1.19/batik-all/target/batik-all-1.19.jar"
+  biojava)
+    APP_JAR="$SCRIPT_DIR/../biojava-7.2.4/biojava-aa-prop/target/AAProperties-jar-with-dependencies.jar"
     ;;
   h2)
     APP_JAR="$SCRIPT_DIR/../h2wrapper/target/h2wrapper-1.0-SNAPSHOT.jar"
