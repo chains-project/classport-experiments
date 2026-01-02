@@ -18,9 +18,9 @@ The repository is structured as follows:
 | [PDFBox-app](https://github.com/apache/pdfbox) | [3.0.4](https://github.com/apache/pdfbox/tree/3.0.4) | 12 | Extract text from a PDF file |
 | [Certificate-ripper](https://github.com/Hakky54/certificate-ripper) | [2.4.1](https://github.com/Hakky54/certificate-ripper/tree/2.4.1) | 5 | Print the certificate of the [CHAINS website](https://chains.proj.kth.se/) |
 | [mcs](https://github.com/mthmulders/mcs) | [0.7.3](https://github.com/mthmulders/mcs/tree/v0.7.3) | 4 | Lookup dependency coordinates in Maven Central |
-| [batik](https://github.com/apache/xmlgraphics-batik) | [1.17](https://github.com/apache/xmlgraphics-batik/tree/1_17) | 6 | Convert an SVG to PNG |
+| [batik](https://github.com/apache/xmlgraphics-batik) | [1.19](https://github.com/algomaster99/xmlgraphics-batik/tree/classport) | 6 | Convert an SVG to PNG |
 | [checkstyle](https://github.com/checkstyle/checkstyle) | [10.23.0](https://github.com/checkstyle/checkstyle/tree/checkstyle-10.23.0) | 34 | Lint a Java file |
-| [zxing](https://github.com/zxing/zxing) | [3.5.3](https://github.com/zxing/zxing/tree/zxing-3.5.3) | 4 | Decode 4 QR codes |
+| [GraphHopper](https://github.com/graphhopper/graphhopper) | [11.0](https://github.com/graphhopper/graphhopper/releases/tag/11.0) | 4 | Test |
 
 ## Getting started
 ### Requirements
@@ -237,41 +237,41 @@ Percentage size overhead: 9.87692200%
 ```
 ❯ ./compute_build_overhead.sh batik
 Building baseline to measure initial JAR size...
-Size of the JAR /mnt/hdd2/amansha/classport/classport-experiments/batikwrapper/target/batikwrapper-1.0-SNAPSHOT.jar before embedding: 5685033 bytes
+Size of the JAR /mnt/hdd2/amansha/classport/classport-experiments/batik-1.19/batik-all/target/batik-all-1.19.jar before embedding: 4316552 bytes
 Running 10 iterations to measure build times...
 Iteration 1/10...
-  Run 1: Baseline=0m2.907s (exit=0), Plugin=0m3.891s (exit=0), Overhead=33.84932900%
+  Run 1: Baseline=11.078 s (exit=0), Plugin=11.588 s (exit=0), Overhead=4.60371900%
 Iteration 2/10...
-  Run 2: Baseline=0m2.984s (exit=0), Plugin=0m4.147s (exit=0), Overhead=38.97453000%
+  Run 2: Baseline=11.022 s (exit=0), Plugin=11.638 s (exit=0), Overhead=5.58882200%
 Iteration 3/10...
-  Run 3: Baseline=0m2.921s (exit=0), Plugin=0m3.802s (exit=0), Overhead=30.16090300%
+  Run 3: Baseline=11.205 s (exit=0), Plugin=11.716 s (exit=0), Overhead=4.56046400%
 Iteration 4/10...
-  Run 4: Baseline=0m2.963s (exit=0), Plugin=0m3.993s (exit=0), Overhead=34.76206500%
+  Run 4: Baseline=11.429 s (exit=0), Plugin=11.641 s (exit=0), Overhead=1.85493000%
 Iteration 5/10...
-  Run 5: Baseline=0m2.990s (exit=0), Plugin=0m3.811s (exit=0), Overhead=27.45819300%
+  Run 5: Baseline=11.118 s (exit=0), Plugin=11.697 s (exit=0), Overhead=5.20777100%
 Iteration 6/10...
-  Run 6: Baseline=0m3.123s (exit=0), Plugin=0m3.593s (exit=0), Overhead=15.04963100%
+  Run 6: Baseline=11.219 s (exit=0), Plugin=11.694 s (exit=0), Overhead=4.23388800%
 Iteration 7/10...
-  Run 7: Baseline=0m2.876s (exit=0), Plugin=0m3.910s (exit=0), Overhead=35.95271200%
+  Run 7: Baseline=11.130 s (exit=0), Plugin=12.172 s (exit=0), Overhead=9.36208400%
 Iteration 8/10...
-  Run 8: Baseline=0m3.030s (exit=0), Plugin=0m3.886s (exit=0), Overhead=28.25082500%
+  Run 8: Baseline=11.237 s (exit=0), Plugin=11.964 s (exit=0), Overhead=6.46969800%
 Iteration 9/10...
-  Run 9: Baseline=0m2.892s (exit=0), Plugin=0m3.825s (exit=0), Overhead=32.26141000%
+  Run 9: Baseline=10.633 s (exit=0), Plugin=11.908 s (exit=0), Overhead=11.99097100%
 Iteration 10/10...
-  Run 10: Baseline=0m2.952s (exit=0), Plugin=0m3.774s (exit=0), Overhead=27.84552800%
+  Run 10: Baseline=11.157 s (exit=0), Plugin=12.085 s (exit=0), Overhead=8.31764800%
 Measuring size of the JAR after embedding...
 -------------------------------
 Results across 10 runs:
-Average baseline build time: 2.96380000s
-Average plugin execution time: 3.86320000s
-Average time overhead: .89940000s
-Average percentage time overhead: 30.45651260%
-Median percentage time overhead: 31.21115650%
+Average baseline build time: 11.12280000s
+Average plugin execution time: 11.81030000s
+Average time overhead: .68750000s
+Average percentage time overhead: 6.21899950%
+Median percentage time overhead: 5.39829650%
 -------------------------------
-Size of JAR before embedding: 5685033 bytes
-Size of JAR after embedding: 7362637 bytes
-Size overhead: 1677604 bytes
-Percentage size overhead: 29.50913300%
+Size of JAR before embedding: 4316552 bytes
+Size of JAR after embedding: 4318201 bytes
+Size overhead: 1649 bytes
+Percentage size overhead: .03820100%
 -------------------------------
 ```
 
@@ -319,45 +319,45 @@ Percentage size overhead: 17.19929900%
 
 
 
-##### ZXing
+##### Graphhopper
 ```
-❯ ./compute_build_overhead.sh zxing
+❯ ./compute_build_overhead.sh graphhopper
 Building baseline to measure initial JAR size...
-Size of the JAR /mnt/hdd2/amansha/classport/classport-experiments/zxing-wrapper/target/zxing-workload-1.0-jar-with-dependencies.jar before embedding: 1356347 bytes
+Size of the JAR /mnt/hdd2/amansha/classport/classport-experiments/graphhopper-11.0/web/target/graphhopper-web-11.0-SNAPSHOT.jar before embedding: 47345070 bytes
 Running 10 iterations to measure build times...
 Iteration 1/10...
-  Run 1: Baseline=0m3.062s (exit=0), Plugin=0m3.265s (exit=0), Overhead=6.62965300%
+  Run 1: Baseline=39.989 s (exit=0), Plugin=46.761 s (exit=0), Overhead=16.93465700%
 Iteration 2/10...
-  Run 2: Baseline=0m3.144s (exit=0), Plugin=0m3.510s (exit=0), Overhead=11.64122100%
+  Run 2: Baseline=40.335 s (exit=0), Plugin=47.143 s (exit=0), Overhead=16.87864100%
 Iteration 3/10...
-  Run 3: Baseline=0m3.205s (exit=0), Plugin=0m3.184s (exit=0), Overhead=-.65522600%
+  Run 3: Baseline=40.508 s (exit=0), Plugin=46.986 s (exit=0), Overhead=15.99190200%
 Iteration 4/10...
-  Run 4: Baseline=0m3.055s (exit=0), Plugin=0m3.506s (exit=0), Overhead=14.76268400%
+  Run 4: Baseline=41.272 s (exit=0), Plugin=47.022 s (exit=0), Overhead=13.93196300%
 Iteration 5/10...
-  Run 5: Baseline=0m3.218s (exit=0), Plugin=0m3.077s (exit=0), Overhead=-4.38160300%
+  Run 5: Baseline=40.538 s (exit=0), Plugin=47.564 s (exit=0), Overhead=17.33188600%
 Iteration 6/10...
-  Run 6: Baseline=0m3.181s (exit=0), Plugin=0m3.319s (exit=0), Overhead=4.33825800%
+  Run 6: Baseline=40.281 s (exit=0), Plugin=47.292 s (exit=0), Overhead=17.40522800%
 Iteration 7/10...
-  Run 7: Baseline=0m3.173s (exit=0), Plugin=0m3.408s (exit=0), Overhead=7.40624000%
+  Run 7: Baseline=39.999 s (exit=0), Plugin=48.145 s (exit=0), Overhead=20.36550900%
 Iteration 8/10...
-  Run 8: Baseline=0m3.478s (exit=0), Plugin=0m3.266s (exit=0), Overhead=-6.09545700%
+  Run 8: Baseline=40.989 s (exit=0), Plugin=46.698 s (exit=0), Overhead=13.92812700%
 Iteration 9/10...
-  Run 9: Baseline=0m3.240s (exit=0), Plugin=0m3.209s (exit=0), Overhead=-.95679000%
+  Run 9: Baseline=40.058 s (exit=0), Plugin=46.579 s (exit=0), Overhead=16.27889500%
 Iteration 10/10...
-  Run 10: Baseline=0m3.289s (exit=0), Plugin=0m3.240s (exit=0), Overhead=-1.48981400%
+  Run 10: Baseline=41.511 s (exit=0), Plugin=46.690 s (exit=0), Overhead=12.47621100%
 Measuring size of the JAR after embedding...
 -------------------------------
 Results across 10 runs:
-Average baseline build time: 3.20450000s
-Average plugin execution time: 3.29840000s
-Average time overhead: .09390000s
-Average percentage time overhead: 3.11991660%
-Median percentage time overhead: 1.84151600%
+Average baseline build time: 40.54800000s
+Average plugin execution time: 47.08800000s
+Average time overhead: 6.54000000s
+Average percentage time overhead: 16.15230190%
+Median percentage time overhead: 16.57876800%
 -------------------------------
-Size of JAR before embedding: 1356347 bytes
-Size of JAR after embedding: 1508051 bytes
-Size overhead: 151704 bytes
-Percentage size overhead: 11.18474800%
+Size of JAR before embedding: 47345070 bytes
+Size of JAR after embedding: 53482482 bytes
+Size overhead: 6137412 bytes
+Percentage size overhead: 12.96314900%
 -------------------------------
 ```
 
