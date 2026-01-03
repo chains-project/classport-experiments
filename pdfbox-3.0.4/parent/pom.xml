@@ -318,6 +318,27 @@
             </plugins>
         </build>
     </profile>
+    <!-- We embed all modules because the tests are in different modules. To measure overhead of entire test suite of the project, we need to embed the project. -->
+    <profile>
+        <id>embed-all</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>io.github.project</groupId>
+                    <artifactId>classport-maven-plugin</artifactId>
+                    <version>0.1.0-SNAPSHOT</version>
+                    <executions>
+                <execution>
+                    <id>classport-embed-all</id>
+                    <goals>
+                        <goal>embed</goal>
+                    </goals>
+                    </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>    
+    </profile>
     <profile>
       <id>introspect</id>
       <build>
@@ -329,20 +350,6 @@
             <configuration>
               <argLine>-javaagent:/home/aman/Desktop/master-thesis/classport/classport-instr-agent/target/classport-instr-agent-0.1.0-SNAPSHOT.jar=introspect,./,dependency</argLine>
             </configuration>
-          </plugin>
-          <!-- We add embedding here because the tests are in different modules. To measure overhead of entire project, we need to embed the project. -->
-          <plugin>
-            <groupId>io.github.project</groupId>
-            <artifactId>classport-maven-plugin</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
-            <executions>
-              <execution>
-                <id>classport-introspect</id>
-                <goals>
-                  <goal>embed</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
         </plugins>
       </build>
