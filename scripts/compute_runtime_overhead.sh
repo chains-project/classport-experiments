@@ -44,6 +44,9 @@ case $PROGRAM in
     checkstyle)
         EXTRA_MAVEN_ARGS+=("-Passembly")    
         ;;
+    ripper)
+        EXTRA_MAVEN_ARGS+=("-Djacoco.skip=true")
+        ;;
 esac
 
 cd "$PROJECT_DIR" || exit 1
@@ -65,8 +68,8 @@ for i in $(seq 1 $NUM_RUNS); do
     echo "Iteration $i/$NUM_RUNS..."
     
     # Clean before baseline test
-    echo "  Cleaning project..."
-    mvn clean "${EXTRA_MAVEN_ARGS[@]}" > /dev/null 2>&1
+    echo "  Cleaning project and compiling classes..."
+    mvn clean process-classes "${EXTRA_MAVEN_ARGS[@]}" > /dev/null 2>&1
     
     # Measure baseline test execution time and capture exit code
     echo "  Running baseline tests (mvn test)..."
@@ -93,8 +96,8 @@ for i in $(seq 1 $NUM_RUNS); do
     BASELINE_SECONDS_ARRAY+=("$BASELINE_SECONDS")
     
     # Prepare for introspect by running clean process-classes with embed profile
-    echo "  Preparing for introspect (mvn clean process-classes -Pembed)..."
-    mvn clean process-classes -Pembed "${EXTRA_MAVEN_ARGS[@]}" > /dev/null 2>&1
+    echo "  Preparing for introspect (mvn clean process-classes -Pembed-all)..."
+    mvn clean process-classes -Pembed-all "${EXTRA_MAVEN_ARGS[@]}" > /dev/null 2>&1
     
     # Measure plugin test execution time and capture exit code
     echo "  Running tests with introspect (mvn test -Pintrospect)..."
