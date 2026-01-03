@@ -73,7 +73,7 @@ for i in $(seq 1 $NUM_RUNS); do
     
     # Measure baseline test execution time and capture exit code
     echo "  Running baseline tests (mvn test)..."
-    BASELINE_OUTPUT=$(mvn test "${EXTRA_MAVEN_ARGS[@]}" 2>&1)
+    BASELINE_OUTPUT=$(mvn test -Dmaven.test.failure.ignore=true "${EXTRA_MAVEN_ARGS[@]}" 2>&1)
     BASELINE_EXIT_CODE=$?
     BASELINE_TIME=$(echo "$BASELINE_OUTPUT" | grep "\[INFO\] Total time:" | sed 's/.*\[INFO\] Total time: *//' | sed 's/ *$//')
     BASELINE_TIMES+=("$BASELINE_TIME")
@@ -101,7 +101,7 @@ for i in $(seq 1 $NUM_RUNS); do
     
     # Measure plugin test execution time and capture exit code
     echo "  Running tests with introspect (mvn test -Pintrospect)..."
-    PLUGIN_OUTPUT=$(mvn test -Pintrospect "${EXTRA_MAVEN_ARGS[@]}" 2>&1)
+    PLUGIN_OUTPUT=$(mvn test -Pintrospect -Dmaven.test.failure.ignore=true "${EXTRA_MAVEN_ARGS[@]}" 2>&1)
     PLUGIN_EXIT_CODE=$?
     PLUGIN_TIME=$(echo "$PLUGIN_OUTPUT" | grep "\[INFO\] Total time:" | sed 's/.*\[INFO\] Total time: *//' | sed 's/ *$//')
     PLUGIN_TIMES+=("$PLUGIN_TIME")
