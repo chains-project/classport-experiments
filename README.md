@@ -110,7 +110,7 @@ For disk overhead information check the output in the console.
 
 For getting the count of depedencies for each Maven project, run the following command:
 ```
-mvn org.apache.maven.plugins:maven-dependency-plugin:3.9.0:collect | grep -E ':(runtime|compile|provided|system)' | sed 's/\[INFO\]//' | cut -d ':' -f 1,2,4 | sort | uniq | wc -l
+mvn org.apache.maven.plugins:maven-dependency-plugin:3.9.0:collect | grep -E ':(runtime|compile|provided|system)$' | sed 's/\[INFO\]//' | cut -d ':' -f 1,2,4 | sort | uniq | wc -l
 ```
 
 ##### PDFBox
