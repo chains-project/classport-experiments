@@ -162,6 +162,7 @@ org.apache.ant:ant:1.10.15
 org.apache.ant:ant-launcher:1.10.15
 org.apache.lucene:lucene-analyzers-common:8.11.4
 org.apache.lucene:lucene-core:8.11.4
+org.apache.pdfbox,pdfbox-examples,3.0.4
 org.apache.pdfbox:fontbox:3.0.4
 org.apache.pdfbox:jbig2-imageio:3.0.4
 org.apache.pdfbox:pdfbox:3.0.4
@@ -173,7 +174,7 @@ org.apache.pdfbox:xmpbox:3.0.4
 org.bouncycastle:bcpkix-jdk18on:1.80
 org.bouncycastle:bcprov-jdk18on:1.80
 org.bouncycastle:bcutil-jdk18on:1.80
->>> 18
+>>> 19
 ```
 
 ##### Certificate-ripper
@@ -674,7 +675,26 @@ org.yaml:snakeyaml:2.4
 
 #### RQ2 Experiments
 
-#### Results
+#### Results for introspection
+
+##### PDFBox
+
+```
+commons-io,commons-io,2.18.0
+commons-logging,commons-logging,1.3.4
+info.picocli,picocli,4.7.6
+org.apache.pdfbox,fontbox,3.0.4
+org.apache.pdfbox,pdfbox,3.0.4
+org.apache.pdfbox,pdfbox-examples,3.0.4
+org.apache.pdfbox,pdfbox-io,3.0.4
+org.apache.pdfbox,pdfbox-tools,3.0.4
+org.apache.pdfbox,preflight,3.0.4
+org.apache.pdfbox,xmpbox,3.0.4
+org.bouncycastle,bcpkix-jdk18on,1.80
+org.bouncycastle,bcprov-jdk18on,1.80
+org.bouncycastle,bcutil-jdk18on,1.80
+```
+
 
 ##### MCS
 ```
