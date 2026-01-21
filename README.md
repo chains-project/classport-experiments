@@ -843,7 +843,7 @@ org.openstreetmap.osmosis,osmosis-osm-binary,0.48.3
 org.slf4j,jul-to-slf4j,2.0.17
 org.slf4j,slf4j-api,2.0.17
 org.yaml,snakeyaml,2.4
->>> 103
+>>> 104
 ```
 
 ##### Biojava
